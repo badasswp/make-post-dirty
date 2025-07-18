@@ -127,8 +127,8 @@ class Admin extends Service implements Kernel {
 		$this->options = get_option( self::PLUGIN_OPTION, [] );
 		?>
 		<div class="wrap">
-			<h1><?php _e( 'Make Post Dirty', 'make-post-dirty' ); ?></h1>
-			<p><?php _e( 'A useful tool for populating the block editor title and content.', 'make-post-dirty' ); ?></p>
+			<h1><?php esc_html_e( 'Make Post Dirty', 'make-post-dirty' ); ?></h1>
+			<p><?php esc_html_e( 'A useful tool for populating the block editor title and content.', 'make-post-dirty' ); ?></p>
 			<form method="post" action="options.php">
 			<?php
 				settings_fields( self::PLUGIN_GROUP );
