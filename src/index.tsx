@@ -2,8 +2,8 @@ import { useDispatch } from '@wordpress/data';
 import { store as editorStore } from '@wordpress/editor';
 import { registerPlugin } from '@wordpress/plugins';
 import { commentEditLink } from '@wordpress/icons';
-import { sprintf } from '@wordpress/i18n';
-import { createSlotFill, Button } from '@wordpress/components';
+import { __, sprintf } from '@wordpress/i18n';
+import { createSlotFill, Button, Tooltip } from '@wordpress/components';
 
 import { posts } from './utils/posts';
 
@@ -57,7 +57,9 @@ const MakePostDirty = () => {
 
 	return (
 		<Fill name={ fillName }>
-			<Button onClick={ handleClick } icon={ commentEditLink } />
+			<Tooltip text={ __( 'Make Post Dirty', 'make-post-dirty' ) }>
+				<Button onClick={ handleClick } icon={ commentEditLink } />
+			</Tooltip>
 		</Fill>
 	);
 };
