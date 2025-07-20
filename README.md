@@ -2,11 +2,15 @@
 
 A useful tool for populating the WP block editor __title__ and __content__.
 
+<img width="348" height="275" alt="make-post-dirty-screenshot" src="https://github.com/user-attachments/assets/b5c89f02-ab68-4967-b9c0-4f49c93ef540" />
+
 ## Why Display Site Notification Bar?
 
 As a WP engineer, I often find myself creating new posts when I need to test out a feature. This can get very tiresome, especially if I always have to create a __title__ and __content__ for my post to enable me accurately test my new feature.
 
 This plugin makes it super easy for me to populate the `title` and `content` of my new post, so that I can just focus on testing out my new feature. It's that simple!
+
+https://github.com/user-attachments/assets/e93a055c-b495-4719-ae26-45637bc4da64
 
 ### Hooks
 
