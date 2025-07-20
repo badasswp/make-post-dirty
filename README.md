@@ -1,3 +1,85 @@
 # make-post-dirty
 
-A useful tool for populating the block editor title and content.
+A useful tool for populating the WP block editor __title__ and __content__.
+
+## Why Display Site Notification Bar?
+
+As a WP engineer, I often find myself creating new posts when I need to test out a feature. This can get very tiresome, especially if I always have to create a __title__ and __content__ for my post to enable me accurately test my new feature.
+
+This plugin makes it super easy for me to populate the `title` and `content` of my new post, so that I can just focus on testing out my new feature. It's that simple!
+
+### Hooks
+
+#### `make_post_dirty_admin_fields`
+
+This custom hook (filter) provides a way to filter the admin fields presented on the options page of the plugin.
+
+```php
+add_filter( 'make_post_dirty_admin_fields', [ $this, 'custom_admin_fields' ] );
+
+public function custom_admin_fields( $fields ): array {
+    $fields[] = [
+        'name'    => 'name_of_your_control',
+        'label'   => __( 'Control Label', 'your-text-domain' ),
+        'cb'      => [ $this, 'name_of_your_control_callback' ],
+        'page'    => 'make-post-dirty',
+        'section' => 'make-post-dirty-section',
+    ];
+
+    return $fields;
+}
+```
+
+**Parameters**
+
+- options _`{array}`_ By default this will be an array containing key, value options for the control.
+<br/>
+
+#### `make_post_dirty_settings`
+
+This custom hook (filter) provides a way to customise the settings used by the notification bar.
+
+```php
+add_filter( 'make_post_dirty_settings', [ $this, 'custom_bar_settings' ] );
+
+public function bar_settings( $settings ): array {
+    $settings['title'] = esc_html(
+        'The Amazing Great Gatsby...'
+    );
+
+    return $settings;
+}
+```
+
+**Parameters**
+
+- options _`{array}`_ By default this will be an associative array containing key, value options of the settings used by the notification bar on the front-end.
+<br/>
+
+## Contribute
+
+Contributions are __welcome__ and will be fully __credited__. To contribute, please fork this repo and raise a PR (Pull Request) against the `master` branch.
+
+### Pre-requisites
+
+You should have the following tools before proceeding to the next steps:
+
+- Composer
+- Yarn
+- Docker
+
+To enable you start development, please run:
+
+```bash
+yarn start
+```
+
+This should spin up a local WP env instance for you to work with at:
+
+```bash
+http://display-site-notification-bar.localhost:9525
+```
+
+You should now have a functioning local WP env to work with. To login to the `wp-admin` backend, please use `admin` for username & `password` for password.
+
+__Awesome!__ - Thanks for being interested in contributing your time and code to this project!
