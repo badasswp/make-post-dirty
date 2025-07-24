@@ -7,7 +7,18 @@ import { createSlotFill, Button, Tooltip } from '@wordpress/components';
 
 import { posts } from './utils/posts';
 
-const MakePostDirty = () => {
+/**
+ * Make Post Dirty.
+ *
+ * This component returns a button that is
+ * placed in the PinnedItems area. It's sole purpose
+ * is for populating the post title and content.
+ *
+ * @since 1.0.0
+ *
+ * @return {JSX.Element} MakePostDirty
+ */
+const MakePostDirty = (): JSX.Element => {
 	const { Fill } = createSlotFill( 'PinnedPlugins' );
 	const { editPost, savePost } = useDispatch( editorStore );
 	const { title, content, random, wpVersion } = window.makePostDirty;
@@ -18,7 +29,21 @@ const MakePostDirty = () => {
 			? 'PinnedItems/core'
 			: 'PinnedItems/core/edit-post';
 
-	const populatePost = ( { attribute, value } ) => {
+	/**
+	 * Populate Post.
+	 *
+	 * Make post dirty by filling in the
+	 * title and content.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param  prop           The object.
+	 * @param  prop.attribute The post attribute for e.g. title or content.
+	 * @param  prop.value     The value for the attribute.
+	 *
+	 * @return {Promise<string>} Returns a promise that resolves to string value.
+	 */
+	const populatePost = ( { attribute, value }: Post ): Promise< string > => {
 		let limit: number = 0;
 		const dirty = [];
 
@@ -41,7 +66,15 @@ const MakePostDirty = () => {
 		} );
 	};
 
-	const handleClick = async () => {
+	/**
+	 * Click Handler.
+	 *
+	 * Populate title, then content, use random
+	 * data, if set from option settings.
+	 *
+	 * @return {Promise<void>}
+	 */
+	const handleClick = async (): Promise< void > => {
 		const index = Math.floor( Math.random() * 5 );
 		const { title: randomTitle, content: randomContent } = posts[ index ];
 
