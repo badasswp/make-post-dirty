@@ -1,8 +1,8 @@
-import { useDispatch } from '@wordpress/data';
-import { store as editorStore } from '@wordpress/editor';
-import { registerPlugin } from '@wordpress/plugins';
-import { commentEditLink } from '@wordpress/icons';
 import { __, sprintf } from '@wordpress/i18n';
+import { useDispatch } from '@wordpress/data';
+import { commentEditLink } from '@wordpress/icons';
+import { registerPlugin } from '@wordpress/plugins';
+import { store as editorStore } from '@wordpress/editor';
 import { createSlotFill, Button, Tooltip } from '@wordpress/components';
 
 import { posts } from './utils/posts';
@@ -72,6 +72,8 @@ const MakePostDirty = (): JSX.Element => {
 	 *
 	 * Populate title, then content, use random
 	 * data, if set from option settings.
+	 *
+	 * @since 1.0.0
 	 *
 	 * @return {Promise<void>}
 	 */
