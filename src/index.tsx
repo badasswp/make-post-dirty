@@ -76,8 +76,10 @@ const MakePostDirty = (): JSX.Element => {
 	 * @return {Promise<void>}
 	 */
 	const handleClick = async (): Promise< void > => {
-		const index = Math.floor( Math.random() * 5 );
-		const { title: randomTitle, content: randomContent } = posts[ index ];
+		const index = Math.floor( Math.random() * ( posts?.length || 1 ) );
+		const { title: randomTitle, content: randomContent } = posts[
+			index
+		] || { title, content };
 
 		await populatePost( {
 			attribute: 'title',
