@@ -4,7 +4,7 @@ A useful tool for populating the WP block editor __title__ and __content__.
 
 <img width="348" height="275" alt="make-post-dirty-screenshot" src="https://github.com/user-attachments/assets/b5c89f02-ab68-4967-b9c0-4f49c93ef540" />
 
-## Why Display Site Notification Bar?
+## Why Make Post Dirty?
 
 As a WP engineer, I often find myself creating new posts when I need to test out a feature. This can get very tiresome, especially if I always have to create a __title__ and __content__ for my post to enable me accurately test my new feature.
 
@@ -81,7 +81,7 @@ yarn start
 This should spin up a local WP env instance for you to work with at:
 
 ```bash
-http://display-site-notification-bar.localhost:9525
+http://make-post-dirty.localhost:9525
 ```
 
 You should now have a functioning local WP env to work with. To login to the `wp-admin` backend, please use `admin` for username & `password` for password.
