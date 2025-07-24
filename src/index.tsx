@@ -6,6 +6,7 @@ import { __, sprintf } from '@wordpress/i18n';
 import { createSlotFill, Button, Tooltip } from '@wordpress/components';
 
 import { posts } from './utils/posts';
+import { Post } from './utils/interfaces';
 
 /**
  * Make Post Dirty.
