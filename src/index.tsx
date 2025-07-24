@@ -46,7 +46,7 @@ const MakePostDirty = (): JSX.Element => {
 	 */
 	const populatePost = ( { attribute, value }: Post ): Promise< string > => {
 		let limit: number = 0;
-		const dirty = [];
+		const dirty: string[] = [];
 
 		return new Promise( ( resolve, reject ) => {
 			const makeDirty = setInterval( () => {
