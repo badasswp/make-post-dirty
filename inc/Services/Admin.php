@@ -106,8 +106,8 @@ class Admin extends Service implements Kernel {
 	 */
 	public function register_options_page(): void {
 		add_menu_page(
-			__( 'Make Post Dirty', 'make-post-dirty' ),
-			__( 'Make Post Dirty', 'make-post-dirty' ),
+			esc_html__( 'Make Post Dirty', 'make-post-dirty' ),
+			esc_html__( 'Make Post Dirty', 'make-post-dirty' ),
 			'manage_options',
 			self::PLUGIN_SLUG,
 			[ $this, 'register_options_cb' ],
@@ -189,7 +189,7 @@ class Admin extends Service implements Kernel {
 		return [
 			[
 				'name'  => self::PLUGIN_SECTION,
-				'label' => __( 'Settings', 'make-post-dirty' ),
+				'label' => esc_html__( 'Settings', 'make-post-dirty' ),
 			],
 		];
 	}
@@ -217,21 +217,21 @@ class Admin extends Service implements Kernel {
 		$options = [
 			[
 				'name'    => self::MAKE_POST_DIRTY_TITLE,
-				'label'   => __( 'Post Title', 'make-post-dirty' ),
+				'label'   => esc_html__( 'Post Title', 'make-post-dirty' ),
 				'cb'      => [ $this, $this->get_callback_name( self::MAKE_POST_DIRTY_TITLE ) ],
 				'page'    => self::PLUGIN_SLUG,
 				'section' => self::PLUGIN_SECTION,
 			],
 			[
 				'name'    => self::MAKE_POST_DIRTY_CONTENT,
-				'label'   => __( 'Post Content', 'make-post-dirty' ),
+				'label'   => esc_html__( 'Post Content', 'make-post-dirty' ),
 				'cb'      => [ $this, $this->get_callback_name( self::MAKE_POST_DIRTY_CONTENT ) ],
 				'page'    => self::PLUGIN_SLUG,
 				'section' => self::PLUGIN_SECTION,
 			],
 			[
 				'name'    => self::MAKE_POST_DIRTY_RANDOM,
-				'label'   => __( 'Use Random Post', 'make-post-dirty' ),
+				'label'   => esc_html__( 'Use Random Post', 'make-post-dirty' ),
 				'cb'      => [ $this, $this->get_callback_name( self::MAKE_POST_DIRTY_RANDOM ) ],
 				'page'    => self::PLUGIN_SLUG,
 				'section' => self::PLUGIN_SECTION,
