@@ -4,22 +4,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Make Post Dirty\n"
 "POT-Creation-Date: 2025-01-11 11:40+0100\n"
-"PO-Revision-Date: 2025-01-11 11:40+0100\n"
+"PO-Revision-Date: 2025-07-25 10:22+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: hi_IN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 "X-Domain: make-post-dirty\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: plugin.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: node_modules\n"
@@ -27,44 +25,44 @@ msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "Make Post Dirty"
-msgstr ""
+msgstr "पोस्ट को गंदा करें"
 
 #. Description of the plugin/theme
 msgid "A useful tool for populating the block editor title and content."
-msgstr ""
+msgstr "ब्लॉक संपादक शीर्षक और सामग्री को भरने के लिए एक उपयोगी उपकरण।"
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/badasswp/make-post-dirty"
-msgstr ""
+msgstr "https://github.com/badasswp/make-post-dirty"
 
 #. Author of the plugin/theme
 msgid "badasswp"
-msgstr ""
+msgstr "badasswp"
 
 #. Author URI of the plugin/theme
 msgid "https://github.com/badasswp"
-msgstr ""
+msgstr "https://github.com/badasswp"
 
-#.Post Title
+#. Post Title
 msgid "Post Title"
-msgstr ""
+msgstr "पोस्ट शीर्षक"
 
 #. Post Content
 msgid "Post Content"
-msgstr ""
+msgstr "सामग्री पोस्ट करें"
 
 #. Use Random Post
 msgid "Use Random Post"
-msgstr ""
+msgstr "रैंडम पोस्ट का प्रयोग करें"
 
 #. Use Animation
 msgid "Use Animation"
-msgstr ""
+msgstr "एनीमेशन का प्रयोग करें"
 
 #. Animation Speed (reduce to make it go faster)
 msgid "Animation Speed (reduce to make it go faster)"
-msgstr ""
+msgstr "एनीमेशन गति (तेज़ करने के लिए कम करें)"
 
 #. Settings
 msgid "Settings"
-msgstr ""
+msgstr "सेटिंग्स"
