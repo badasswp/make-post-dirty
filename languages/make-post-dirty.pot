@@ -44,3 +44,23 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://github.com/badasswp"
 msgstr ""
+
+#.Post Title
+msgid "Post Title"
+msgstr ""
+
+#. Post Content
+msgid "Post Content"
+msgstr ""
+
+#. Use Random Post
+msgid "Use Random Post"
+msgstr ""
+
+#. Use Animation
+msgid "Use Animation"
+msgstr ""
+
+#. Animation Speed (reduce to make it go faster)
+msgid "Animation Speed (reduce to make it go faster)"
+msgstr ""
