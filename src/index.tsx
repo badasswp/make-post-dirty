@@ -3,7 +3,7 @@ import { useDispatch } from '@wordpress/data';
 import { commentEditLink } from '@wordpress/icons';
 import { registerPlugin } from '@wordpress/plugins';
 import { store as editorStore } from '@wordpress/editor';
-import { createSlotFill, Button, Tooltip } from '@wordpress/components';
+import { Fill, Button, Tooltip } from '@wordpress/components';
 
 import { posts } from './utils/posts';
 import { Post } from './utils/interfaces';
@@ -20,7 +20,6 @@ import { Post } from './utils/interfaces';
  * @return {JSX.Element} MakePostDirty
  */
 const MakePostDirty = (): JSX.Element => {
-	const { Fill } = createSlotFill( 'PinnedPlugins' );
 	const { editPost, savePost } = useDispatch( editorStore );
 	const { title, content, random, wpVersion } = window.makePostDirty;
 
