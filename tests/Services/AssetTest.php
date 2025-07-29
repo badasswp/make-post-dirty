@@ -11,6 +11,7 @@ use MakePostDirty\Services\Asset;
  * @covers \MakePostDirty\Services\Asset::register_scripts
  * @covers \MakePostDirty\Services\Asset::register_translation
  * @covers \MakePostDirty\Services\Asset::get_assets
+ * @covers \MakePostDirty\Services\Admin::get_settings
  */
 class AssetTest extends TestCase {
 	public function setUp(): void {
