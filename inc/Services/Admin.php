@@ -309,7 +309,7 @@ class Admin extends Service implements Kernel {
 				type="text"
 				id="%2$s"
 				name="%1$s[%2$s]"
-				placeholder="#000"
+				placeholder=""
 				value="%3$s"
 			/>',
 			esc_attr( self::PLUGIN_OPTION ),
