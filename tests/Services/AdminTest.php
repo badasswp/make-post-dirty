@@ -14,11 +14,9 @@ use MakePostDirty\Services\Admin;
  * @covers \MakePostDirty\Services\Admin::get_sections
  * @covers \MakePostDirty\Services\Admin::get_callback_name
  * @covers \MakePostDirty\Services\Admin::get_options
- * @covers \MakePostDirty\Services\Admin::text_cb
- * @covers \MakePostDirty\Services\Admin::text_color_cb
- * @covers \MakePostDirty\Services\Admin::background_color_cb
- * @covers \MakePostDirty\Services\Admin::position_cb
- * @covers \MakePostDirty\Services\Admin::visibility_cb
+ * @covers \MakePostDirty\Services\Admin::title_cb
+ * @covers \MakePostDirty\Services\Admin::content_cb
+ * @covers \MakePostDirty\Services\Admin::random_cb
  * @covers \MakePostDirty\Services\Admin::sanitize_options
  * @covers \MakePostDirty\Services\Admin::get_settings
  */
