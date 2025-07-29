@@ -111,7 +111,7 @@ class AssetTest extends TestCase {
 					'content' => 'Test Content',
 					'random'  => true,
 				]
-			 );
+			);
 
 		\WP_Mock::expectFilter(
 			'make_post_dirty_settings',
