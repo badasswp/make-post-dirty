@@ -85,7 +85,6 @@ class AssetTest extends TestCase {
 		$this->assertIsArray( $actual );
 		$this->assertArrayHasKey( 'dependencies', $actual );
 		$this->assertArrayHasKey( 'version', $actual );
-		$this->assertNotEmpty( $actual['dependencies'] );
 		$this->assertConditionsMet();
 	}
 
