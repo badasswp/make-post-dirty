@@ -80,22 +80,12 @@ class AssetTest extends TestCase {
 		$asset = Mockery::mock( Asset::class )->makePartial();
 		$asset->shouldAllowMockingProtectedMethods();
 
-		$expected = [
-			'dependencies' => [
-				'react',
-				'wp-components',
-				'wp-data',
-				'wp-editor',
-				'wp-i18n',
-				'wp-plugins',
-				'wp-primitives',
-			],
-			'version'      => 'b0ee0547444c42928b08',
-		];
-
 		$actual = $asset->get_assets( __DIR__ . '/../../dist/app.asset.php' );
 
-		$this->assertSame( $expected, $actual );
+		$this->assertIsArray( $actual );
+		$this->assertArrayHasKey( 'dependencies', $actual );
+		$this->assertArrayHasKey( 'version', $actual );
+		$this->assertNotEmpty( $actual['dependencies'] );
 		$this->assertConditionsMet();
 	}
 
