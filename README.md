@@ -36,7 +36,7 @@ public function custom_admin_fields( $fields ): array {
 
 **Parameters**
 
-- options _`{array}`_ By default this will be an array containing key, value options for the control.
+- fields _`{array}`_ By default this will be an array containing key, value options for the control.
 <br/>
 
 #### `make_post_dirty_settings`
@@ -57,7 +57,7 @@ public function custom_bar_settings( $settings ): array {
 
 **Parameters**
 
-- options _`{array}`_ By default this will be an associative array containing key, value options of the settings used by the notification bar on the front-end.
+- settings _`{array}`_ By default this will be an associative array containing key, value options of the settings used by the notification bar on the front-end.
 <br/>
 
 ## Contribute
