@@ -46,7 +46,7 @@ This custom hook (filter) provides a way to customise the settings used by the n
 ```php
 add_filter( 'make_post_dirty_settings', [ $this, 'custom_bar_settings' ] );
 
-public function bar_settings( $settings ): array {
+public function custom_bar_settings( $settings ): array {
     $settings['title'] = esc_html(
         'The Amazing Great Gatsby...'
     );
