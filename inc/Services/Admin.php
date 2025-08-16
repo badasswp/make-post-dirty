@@ -343,7 +343,7 @@ class Admin extends Service implements Kernel {
 		if ( isset( $input[ self::MAKE_POST_DIRTY_RANDOM ] ) ) {
 			$input_data = trim( (string) $input[ self::MAKE_POST_DIRTY_RANDOM ] );
 
-			$sanitized_options[ self::MAKE_POST_DIRTY_RANDOM ] = sanitize_text_field( $input_data );
+			$sanitized_options[ self::MAKE_POST_DIRTY_RANDOM ] = absint( $input_data );
 		}
 
 		return $sanitized_options;
