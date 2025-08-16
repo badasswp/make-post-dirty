@@ -318,6 +318,8 @@ class AdminTest extends TestCase {
 	}
 
 	public function test_random_cb() {
+		$admin = new Admin();
+
 		\WP_Mock::userFunction( 'esc_attr' )
 			->andReturnUsing(
 				function ( $arg ) {
@@ -325,15 +327,23 @@ class AdminTest extends TestCase {
 				}
 			);
 
-		$response = ( new Admin() )->random_cb();
+		\WP_Mock::userFunction( 'checked' )
+			->andReturnUsing(
+				function ( $arg1, $arg2, $arg3 ) {
+					return $arg1 === $arg2 ? 'checked' : '';
+				}
+			);
+
+		$admin->options['random'] = 1;
+
+		$response = $admin->random_cb();
 
 		$this->expectOutputString(
 			'<input
-				type="text"
+				type="checkbox"
 				id="random"
 				name="make_post_dirty[random]"
-				placeholder=""
-				value=""
+				value="1" checked
 			/>'
 		);
 		$this->assertNull( $response );
