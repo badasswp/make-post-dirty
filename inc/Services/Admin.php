@@ -306,15 +306,14 @@ class Admin extends Service implements Kernel {
 	public function random_cb(): void {
 		printf(
 			'<input
-				type="text"
+				type="checkbox"
 				id="%2$s"
 				name="%1$s[%2$s]"
-				placeholder=""
-				value="%3$s"
+				value="1" %3$s
 			/>',
 			esc_attr( self::PLUGIN_OPTION ),
 			esc_attr( self::MAKE_POST_DIRTY_RANDOM ),
-			esc_attr( $this->options[ self::MAKE_POST_DIRTY_RANDOM ] ?? '' )
+			checked( 1, $this->options[ self::MAKE_POST_DIRTY_RANDOM ] ?? 0, false )
 		);
 	}
 
