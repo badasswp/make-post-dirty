@@ -6,9 +6,9 @@ A useful tool for populating the WP block editor __title__ and __content__.
 
 ## Why Make Post Dirty?
 
-As a WP engineer, I often find myself creating new posts when I need to test out a feature. This can get very tiresome, especially if I always have to create a __title__ and __content__ for my post to enable me accurately test my new feature.
+As a WP engineer, you may often find yourself creating posts to test a feature you're working on. This can get very tiresome, especially if you always have to create a __title__ and __content__ for every single post just to enable you accurately test a new feature.
 
-This plugin makes it super easy for me to populate the `title` and `content` of my new post, so that I can just focus on testing out my new feature. It's that simple!
+This plugin makes it super easy for you to populate the `title` and `content` of your new post, so that you can just focus on testing out your new feature. It's that simple!
 
 https://github.com/user-attachments/assets/e93a055c-b495-4719-ae26-45637bc4da64
 
