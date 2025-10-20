@@ -2,6 +2,7 @@
 
 namespace MakePostDirty\Tests\Services;
 
+use WP_Mock;
 use Mockery;
 use WP_Mock\Tools\TestCase;
 use MakePostDirty\Services\Admin;
@@ -22,18 +23,18 @@ use MakePostDirty\Services\Admin;
  */
 class AdminTest extends TestCase {
 	public function setUp(): void {
-		\WP_Mock::setUp();
+		WP_Mock::setUp();
 	}
 
 	public function tearDown(): void {
-		\WP_Mock::tearDown();
+		WP_Mock::tearDown();
 	}
 
 	public function test_register() {
 		$admin = new Admin();
 
-		\WP_Mock::expectActionAdded( 'admin_menu', [ $admin, 'register_options_page' ] );
-		\WP_Mock::expectActionAdded( 'admin_init', [ $admin, 'register_options_init' ] );
+		WP_Mock::expectActionAdded( 'admin_menu', [ $admin, 'register_options_page' ] );
+		WP_Mock::expectActionAdded( 'admin_init', [ $admin, 'register_options_init' ] );
 
 		$register = $admin->register();
 
@@ -44,14 +45,14 @@ class AdminTest extends TestCase {
 	public function test_register_options_page() {
 		$admin = new Admin();
 
-		\WP_Mock::userFunction( 'esc_html__' )
+		WP_Mock::userFunction( 'esc_html__' )
 			->andReturnUsing(
 				function ( $arg ) {
 					return $arg;
 				}
 			);
 
-		\WP_Mock::userFunction( 'add_menu_page' )
+		WP_Mock::userFunction( 'add_menu_page' )
 			->with(
 				'Make Post Dirty',
 				'Make Post Dirty',
@@ -72,18 +73,18 @@ class AdminTest extends TestCase {
 	public function test_register_options_cb() {
 		$admin = new Admin();
 
-		\WP_Mock::userFunction( 'get_option' )
+		WP_Mock::userFunction( 'get_option' )
 			->with( 'make_post_dirty', [] )
 			->andReturn( [] );
 
-		\WP_Mock::userFunction( 'esc_html_e' )
+		WP_Mock::userFunction( 'esc_html_e' )
 			->andReturnUsing(
 				function ( $arg ) {
 					echo $arg;
 				}
 			);
 
-		\WP_Mock::userFunction( 'settings_fields' )
+		WP_Mock::userFunction( 'settings_fields' )
 			->andReturnUsing(
 				function ( $arg ) {
 					?>
@@ -92,7 +93,7 @@ class AdminTest extends TestCase {
 				}
 			);
 
-		\WP_Mock::userFunction( 'do_settings_sections' )
+		WP_Mock::userFunction( 'do_settings_sections' )
 			->andReturnUsing(
 				function ( $arg ) {
 					?>
@@ -101,7 +102,7 @@ class AdminTest extends TestCase {
 				}
 			);
 
-		\WP_Mock::userFunction( 'submit_button' )
+		WP_Mock::userFunction( 'submit_button' )
 			->andReturnUsing(
 				function () {
 					?>
@@ -131,14 +132,14 @@ class AdminTest extends TestCase {
 	public function test_register_options_init() {
 		$admin = new Admin();
 
-		\WP_Mock::userFunction( 'esc_html__' )
+		WP_Mock::userFunction( 'esc_html__' )
 			->andReturnUsing(
 				function ( $arg ) {
 					return $arg;
 				}
 			);
 
-		\WP_Mock::userFunction( 'register_setting' )
+		WP_Mock::userFunction( 'register_setting' )
 			->with(
 				'make-post-dirty-group',
 				'make_post_dirty',
@@ -146,7 +147,7 @@ class AdminTest extends TestCase {
 			)
 			->andReturn( null );
 
-		\WP_Mock::userFunction( 'add_settings_section' )
+		WP_Mock::userFunction( 'add_settings_section' )
 			->once()
 			->with(
 				'make-post-dirty-section',
@@ -156,7 +157,7 @@ class AdminTest extends TestCase {
 			)
 			->andReturn( null );
 
-		\WP_Mock::expectFilter(
+		WP_Mock::expectFilter(
 			'make_post_dirty_admin_fields',
 			[
 				[
@@ -183,7 +184,7 @@ class AdminTest extends TestCase {
 			]
 		);
 
-		\WP_Mock::userFunction( 'add_settings_field' )
+		WP_Mock::userFunction( 'add_settings_field' )
 			->times( 3 );
 
 		$register = $admin->register_options_init();
@@ -196,7 +197,7 @@ class AdminTest extends TestCase {
 		$admin = Mockery::mock( Admin::class )->makePartial();
 		$admin->shouldAllowMockingProtectedMethods();
 
-		\WP_Mock::userFunction( 'esc_html__' )
+		WP_Mock::userFunction( 'esc_html__' )
 			->andReturnUsing(
 				function ( $arg ) {
 					return $arg;
@@ -254,14 +255,14 @@ class AdminTest extends TestCase {
 			],
 		];
 
-		\WP_Mock::userFunction( 'esc_html__' )
+		WP_Mock::userFunction( 'esc_html__' )
 			->andReturnUsing(
 				function ( $arg ) {
 					return $arg;
 				}
 			);
 
-		\WP_Mock::expectFilter(
+		WP_Mock::expectFilter(
 			'make_post_dirty_admin_fields',
 			$options
 		);
@@ -271,7 +272,7 @@ class AdminTest extends TestCase {
 	}
 
 	public function test_title_cb() {
-		\WP_Mock::userFunction( 'esc_attr' )
+		WP_Mock::userFunction( 'esc_attr' )
 			->andReturnUsing(
 				function ( $arg ) {
 					return $arg;
@@ -295,7 +296,7 @@ class AdminTest extends TestCase {
 	}
 
 	public function test_content_cb() {
-		\WP_Mock::userFunction( 'esc_attr' )
+		WP_Mock::userFunction( 'esc_attr' )
 			->andReturnUsing(
 				function ( $arg ) {
 					return $arg;
@@ -320,14 +321,14 @@ class AdminTest extends TestCase {
 	public function test_random_cb() {
 		$admin = new Admin();
 
-		\WP_Mock::userFunction( 'esc_attr' )
+		WP_Mock::userFunction( 'esc_attr' )
 			->andReturnUsing(
 				function ( $arg ) {
 					return $arg;
 				}
 			);
 
-		\WP_Mock::userFunction( 'checked' )
+		WP_Mock::userFunction( 'checked' )
 			->andReturnUsing(
 				function ( $arg1, $arg2, $arg3 ) {
 					return $arg1 === $arg2 ? 'checked' : '';
@@ -351,11 +352,11 @@ class AdminTest extends TestCase {
 	}
 
 	public function test_get_settings_uses_default_values_if_plugin_options_not_set() {
-		\WP_Mock::userFunction( 'get_option' )
+		WP_Mock::userFunction( 'get_option' )
 			->with( 'make_post_dirty', [] )
 			->andReturn( [] );
 
-		\WP_Mock::expectFilter(
+		WP_Mock::expectFilter(
 			'make_post_dirty_settings',
 			[
 				'title'   => 'Lorem ipsum dolor sit amet...',
@@ -377,7 +378,7 @@ class AdminTest extends TestCase {
 	}
 
 	public function test_get_settings_returns_plugin_options_if_set() {
-		\WP_Mock::userFunction( 'get_option' )
+		WP_Mock::userFunction( 'get_option' )
 			->with( 'make_post_dirty', [] )
 			->andReturn(
 				[
@@ -387,7 +388,7 @@ class AdminTest extends TestCase {
 				]
 			);
 
-		\WP_Mock::expectFilter(
+		WP_Mock::expectFilter(
 			'make_post_dirty_settings',
 			[
 				'title'   => 'Hello World',
@@ -416,7 +417,7 @@ class AdminTest extends TestCase {
 	}
 
 	public function test_sanitize_options_sanitizes_only_controls_that_are_set() {
-		\WP_Mock::userFunction( 'sanitize_textarea_field' )
+		WP_Mock::userFunction( 'sanitize_textarea_field' )
 			->andReturnUsing(
 				function ( $arg ) {
 					return $arg;

@@ -2,6 +2,7 @@
 
 namespace MakePostDirty\Tests\Services;
 
+use WP_Mock;
 use Mockery;
 use WP_Mock\Tools\TestCase;
 use MakePostDirty\Services\Asset;
@@ -15,24 +16,24 @@ use MakePostDirty\Services\Asset;
  */
 class AssetTest extends TestCase {
 	public function setUp(): void {
-		\WP_Mock::setUp();
+		WP_Mock::setUp();
 	}
 
 	public function tearDown(): void {
-		\WP_Mock::tearDown();
+		WP_Mock::tearDown();
 	}
 
 	public function test_register() {
 		$asset = new Asset();
 
-		\WP_Mock::expectActionAdded(
+		WP_Mock::expectActionAdded(
 			'init',
 			[
 				$asset,
 				'register_translation',
 			]
 		);
-		\WP_Mock::expectActionAdded( 'enqueue_block_editor_assets', [ $asset, 'register_scripts' ] );
+		WP_Mock::expectActionAdded( 'enqueue_block_editor_assets', [ $asset, 'register_scripts' ] );
 
 		$response = $asset->register();
 
@@ -46,12 +47,12 @@ class AssetTest extends TestCase {
 		$file_name = new \ReflectionClass( Asset::class );
 		$file_name = $file_name->getFileName();
 
-		\WP_Mock::userFunction( 'plugin_basename' )
+		WP_Mock::userFunction( 'plugin_basename' )
 			->once()
 			->with( $file_name )
 			->andReturn( '.' );
 
-		\WP_Mock::userFunction( 'load_plugin_textdomain' )
+		WP_Mock::userFunction( 'load_plugin_textdomain' )
 			->once()
 			->with( 'make-post-dirty', false, './../../languages' );
 
@@ -92,7 +93,7 @@ class AssetTest extends TestCase {
 		$asset = Mockery::mock( Asset::class )->makePartial();
 		$asset->shouldAllowMockingProtectedMethods();
 
-		\WP_Mock::userFunction( 'get_option' )
+		WP_Mock::userFunction( 'get_option' )
 			->once()
 			->with( 'make_post_dirty', [] )
 			->andReturn(
@@ -103,7 +104,7 @@ class AssetTest extends TestCase {
 				]
 			);
 
-		\WP_Mock::expectFilter(
+		WP_Mock::expectFilter(
 			'make_post_dirty_settings',
 			[
 				'title'   => 'Test Title',
@@ -112,7 +113,7 @@ class AssetTest extends TestCase {
 			]
 		);
 
-		\WP_Mock::userFunction( 'plugin_dir_path' )
+		WP_Mock::userFunction( 'plugin_dir_path' )
 			->andReturn( __DIR__ );
 
 		$asset->shouldReceive( 'get_assets' )
@@ -133,12 +134,12 @@ class AssetTest extends TestCase {
 				]
 			);
 
-		\WP_Mock::userFunction( 'plugins_url' )
+		WP_Mock::userFunction( 'plugins_url' )
 			->once()
 			->with( 'make-post-dirty/dist/app.js' )
 			->andReturn( 'https://example.com/wp-content/plugins/make-post-dirty/dist/app.js' );
 
-		\WP_Mock::userFunction( 'wp_enqueue_script' )
+		WP_Mock::userFunction( 'wp_enqueue_script' )
 			->once()
 			->with(
 				'make-post-dirty',
@@ -156,7 +157,7 @@ class AssetTest extends TestCase {
 				false
 			);
 
-		\WP_Mock::userFunction( 'wp_localize_script' )
+		WP_Mock::userFunction( 'wp_localize_script' )
 			->once()
 			->with(
 				'make-post-dirty',
@@ -169,7 +170,7 @@ class AssetTest extends TestCase {
 				]
 			);
 
-		\WP_Mock::userFunction( 'wp_set_script_translations' )
+		WP_Mock::userFunction( 'wp_set_script_translations' )
 			->once()
 			->with(
 				'make-post-dirty',
