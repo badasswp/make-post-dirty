@@ -59,7 +59,7 @@ class AdminTest extends TestCase {
 				'manage_options',
 				'make-post-dirty',
 				[ $admin, 'register_options_cb' ],
-				'dashicons-edit-page',
+				'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iY3VycmVudENvbG9yIj4KCQkJCQk8cGF0aCBkPSJtNi4yNDkgMTEuMDY1LjQ0LS40NGgzLjE4NmwtMS41IDEuNUg3LjMxbC0xLjk1NyAxLjk2QS43OTIuNzkyIDAgMCAxIDQgMTMuNTI0VjVhMSAxIDAgMCAxIDEtMWg4YTEgMSAwIDAgMSAxIDF2MS41TDEyLjUgOFY1LjVoLTd2Ni4zMTVsLjc0OS0uNzVaTTIwIDE5Ljc1SDd2LTEuNWgxM3YxLjVabTAtMTIuNjUzLTguOTY3IDkuMDY0TDggMTdsLjg2Ny0yLjkzNUwxNy44MzMgNSAyMCA3LjA5N1oiIC8+CgkJCQk8L3N2Zz4=',
 				100
 			)
 			->andReturn( null );
