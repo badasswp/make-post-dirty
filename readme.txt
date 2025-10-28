@@ -40,7 +40,7 @@ The plugin provides the following capabilities:
 
 1. Create a New Post.
 
-2. Locate the 'Make Post Dirty' icon at the top-right hand side of the block editor.
+2. Locate the 'Make Post Dirty' icon at the top-right section of the block editor.
 
 3. Click to populate the block editor title and content.
 
