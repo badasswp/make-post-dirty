@@ -48,7 +48,7 @@ class Asset extends Service implements Kernel {
 
 		wp_enqueue_script(
 			self::SLUG,
-			plugins_url( 'make-post-dirty/dist/app.js' ),
+			plugin_dir_url( __FILE__ ) . '../../dist/app.js',
 			$assets['dependencies'],
 			$assets['version'],
 			false,
