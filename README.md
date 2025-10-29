@@ -4,6 +4,12 @@ A useful tool for populating the WP block editor __title__ and __content__.
 
 <img width="348" height="275" alt="make-post-dirty-screenshot" src="https://github.com/user-attachments/assets/b5c89f02-ab68-4967-b9c0-4f49c93ef540" />
 
+## Download
+
+Download from [WordPress plugin repository](https://wordpress.org/plugins/make-post-dirty/).
+
+You can also get the latest version from any of our [release tags](https://github.com/badasswp/make-post-dirty/releases).
+
 ## Why Make Post Dirty?
 
 As a WP engineer, you may often find yourself creating posts to test a feature you're working on. This can get very tiresome, especially if you always have to create a __title__ and __content__ for every single post just to enable you accurately test a new feature.
