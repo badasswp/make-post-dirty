@@ -1,6 +1,6 @@
 {
   "name": "make-post-dirty",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A useful tool for populating the block editor title and content.",
   "author": "badasswp",
   "license": "GPL-3.0-or-later",
