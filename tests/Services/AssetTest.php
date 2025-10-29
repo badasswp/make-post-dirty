@@ -134,16 +134,15 @@ class AssetTest extends TestCase {
 				]
 			);
 
-		WP_Mock::userFunction( 'plugins_url' )
+		WP_Mock::userFunction( 'plugin_dir_url' )
 			->once()
-			->with( 'make-post-dirty/dist/app.js' )
-			->andReturn( 'https://example.com/wp-content/plugins/make-post-dirty/dist/app.js' );
+			->andReturn( 'https://example.com/wp-content/plugins/make-post-dirty/inc/Services/' );
 
 		WP_Mock::userFunction( 'wp_enqueue_script' )
 			->once()
 			->with(
 				'make-post-dirty',
-				'https://example.com/wp-content/plugins/make-post-dirty/dist/app.js',
+				'https://example.com/wp-content/plugins/make-post-dirty/inc/Services/../../dist/app.js',
 				[
 					'react',
 					'wp-components',
