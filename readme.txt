@@ -8,7 +8,7 @@ Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A useful tool for populating the block editor title and content. Never have to manually type in a title and content just to test a feature you have built.
+A useful tool for populating the block editor title and content. Never have to manually type content to test a feature.
 
 == Installation ==
 
