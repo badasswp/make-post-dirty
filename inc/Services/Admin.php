@@ -65,6 +65,13 @@ class Admin extends Service implements Kernel {
 	const MAKE_POST_DIRTY_RANDOM = 'random';
 
 	/**
+	 * Default Animation Enable.
+	 *
+	 * @var string
+	 */
+	const MAKE_POST_DIRTY_ANIMATION_ENABLE = 'animation_enable';
+
+	/**
 	 * Default Post Title.
 	 *
 	 * @var string
@@ -240,6 +247,13 @@ class Admin extends Service implements Kernel {
 				'page'    => self::PLUGIN_SLUG,
 				'section' => self::PLUGIN_SECTION,
 			],
+			[
+				'name'    => self::MAKE_POST_DIRTY_ANIMATION_ENABLE,
+				'label'   => esc_html__( 'Animation Enable', 'make-post-dirty' ),
+				'cb'      => [ $this, $this->get_callback_name( self::MAKE_POST_DIRTY_ANIMATION_ENABLE ) ],
+				'page'    => self::PLUGIN_SLUG,
+				'section' => self::PLUGIN_SECTION,
+			],
 		];
 
 		/**
@@ -322,6 +336,27 @@ class Admin extends Service implements Kernel {
 	}
 
 	/**
+	 * Animation Enable.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return void
+	 */
+	public function animation_enable_cb(): void {
+		printf(
+			'<input
+				type="checkbox"
+				id="%2$s"
+				name="%1$s[%2$s]"
+				value="1" %3$s
+			/>',
+			esc_attr( self::PLUGIN_OPTION ),
+			esc_attr( self::MAKE_POST_DIRTY_ANIMATION_ENABLE ),
+			checked( 1, $this->options[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] ?? 0, false )
+		);
+	}
+
+	/**
 	 * Sanitize Options.
 	 *
 	 * @since 1.0.0
@@ -348,6 +383,12 @@ class Admin extends Service implements Kernel {
 			$input_data = trim( (string) $input[ self::MAKE_POST_DIRTY_RANDOM ] );
 
 			$sanitized_options[ self::MAKE_POST_DIRTY_RANDOM ] = absint( $input_data );
+		}
+
+		if ( isset( $input[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] ) ) {
+			$input_data = trim( (string) $input[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] );
+
+			$sanitized_options[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] = absint( $input_data );
 		}
 
 		return $sanitized_options;
