@@ -301,6 +301,28 @@ class Admin extends Service implements Kernel {
 	}
 
 	/**
+	 * Animation Speed Callback.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	public function animation_speed_cb(): void {
+		printf(
+			'<input
+				type="text"
+				id="%2$s"
+				name="%1$s[%2$s]"
+				value="%3$s"
+			    class="wide"
+			/>',
+			esc_attr( self::PLUGIN_OPTION ),
+			esc_attr( self::MAKE_POST_DIRTY_ANIMATION_SPEED ),
+			esc_attr( $this->options[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] ?? '' )
+		);
+	}
+
+	/**
 	 * Random Callback.
 	 *
 	 * @since 1.0.0
