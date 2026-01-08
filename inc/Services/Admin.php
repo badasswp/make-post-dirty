@@ -278,7 +278,7 @@ class Admin extends Service implements Kernel {
 	}
 
 	/**
-	 * Content Callback.
+	 * Content Callback. Testing textarea.
 	 *
 	 * @since 1.0.0
 	 *
