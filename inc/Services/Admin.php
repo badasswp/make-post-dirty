@@ -313,6 +313,7 @@ class Admin extends Service implements Kernel {
 				id="%2$s"
 				name="%1$s[%2$s]"
 				value="%3$s"
+			    class="wide"
 			/>',
 			esc_attr( self::PLUGIN_OPTION ),
 			esc_attr( self::MAKE_POST_DIRTY_ANIMATION_SPEED ),
