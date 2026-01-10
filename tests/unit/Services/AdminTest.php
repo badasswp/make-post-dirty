@@ -4,8 +4,8 @@ namespace MakePostDirty\Tests\Services;
 
 use WP_Mock;
 use Mockery;
-use WP_Mock\Tools\TestCase;
 use MakePostDirty\Services\Admin;
+use Badasswp\WPMockTC\WPMockTestCase;
 
 /**
  * @covers \MakePostDirty\Services\Admin::register
@@ -21,13 +21,13 @@ use MakePostDirty\Services\Admin;
  * @covers \MakePostDirty\Services\Admin::sanitize_options
  * @covers \MakePostDirty\Services\Admin::get_settings
  */
-class AdminTest extends TestCase {
+class AdminTest extends WPMockTestCase {
 	public function setUp(): void {
-		WP_Mock::setUp();
+		parent::setup();
 	}
 
 	public function tearDown(): void {
-		WP_Mock::tearDown();
+		parent::tearDown();
 	}
 
 	public function test_register() {
@@ -44,13 +44,6 @@ class AdminTest extends TestCase {
 
 	public function test_register_options_page() {
 		$admin = new Admin();
-
-		WP_Mock::userFunction( 'esc_html__' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
 
 		WP_Mock::userFunction( 'add_menu_page' )
 			->with(
@@ -76,13 +69,6 @@ class AdminTest extends TestCase {
 		WP_Mock::userFunction( 'get_option' )
 			->with( 'make_post_dirty', [] )
 			->andReturn( [] );
-
-		WP_Mock::userFunction( 'esc_html_e' )
-			->andReturnUsing(
-				function ( $arg ) {
-					echo $arg;
-				}
-			);
 
 		WP_Mock::userFunction( 'settings_fields' )
 			->andReturnUsing(
@@ -131,13 +117,6 @@ class AdminTest extends TestCase {
 
 	public function test_register_options_init() {
 		$admin = new Admin();
-
-		WP_Mock::userFunction( 'esc_html__' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
 
 		WP_Mock::userFunction( 'register_setting' )
 			->with(
@@ -197,13 +176,6 @@ class AdminTest extends TestCase {
 		$admin = Mockery::mock( Admin::class )->makePartial();
 		$admin->shouldAllowMockingProtectedMethods();
 
-		WP_Mock::userFunction( 'esc_html__' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
-
 		$sections = $admin->get_sections();
 
 		$this->assertSame(
@@ -255,13 +227,6 @@ class AdminTest extends TestCase {
 			],
 		];
 
-		WP_Mock::userFunction( 'esc_html__' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
-
 		WP_Mock::expectFilter(
 			'make_post_dirty_admin_fields',
 			$options
@@ -272,13 +237,6 @@ class AdminTest extends TestCase {
 	}
 
 	public function test_title_cb() {
-		WP_Mock::userFunction( 'esc_attr' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
-
 		$response = ( new Admin() )->title_cb();
 
 		$this->expectOutputString(
@@ -296,13 +254,6 @@ class AdminTest extends TestCase {
 	}
 
 	public function test_content_cb() {
-		WP_Mock::userFunction( 'esc_attr' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
-
 		$response = ( new Admin() )->content_cb();
 
 		$this->expectOutputString(
@@ -320,13 +271,6 @@ class AdminTest extends TestCase {
 
 	public function test_random_cb() {
 		$admin = new Admin();
-
-		WP_Mock::userFunction( 'esc_attr' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
 
 		WP_Mock::userFunction( 'checked' )
 			->andReturnUsing(
