@@ -33,7 +33,7 @@ class AdminTest extends TestCase {
 	public function expectOutputStringIgnoreLineEndings( $output ) {
 		if ( 'Windows' === PHP_OS_FAMILY ) {
 			return $this->expectOutputString(
-				preg_replace( "/\n/", "\r\n", $output )
+				preg_replace( "/\r/", "\r\n", $output )
 			);
 		}
 
