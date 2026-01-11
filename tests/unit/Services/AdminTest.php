@@ -178,11 +178,18 @@ class AdminTest extends WPMockTestCase {
 					'page'    => 'make-post-dirty',
 					'section' => 'make-post-dirty-section',
 				],
+				[
+					'name'    => 'animation_enable',
+					'label'   => 'Animation Enable',
+					'cb'      => [ $admin, 'animation_enable_cb' ],
+					'page'    => 'make-post-dirty',
+					'section' => 'make-post-dirty-section',
+				],
 			]
 		);
 
 		WP_Mock::userFunction( 'add_settings_field' )
-			->times( 3 );
+			->times( 4 );
 
 		$register = $admin->register_options_init();
 
@@ -240,6 +247,13 @@ class AdminTest extends WPMockTestCase {
 				'name'    => 'random',
 				'label'   => 'Use Random Post',
 				'cb'      => [ $admin, 'random_cb' ],
+				'page'    => 'make-post-dirty',
+				'section' => 'make-post-dirty-section',
+			],
+			[
+				'name'    => 'animation_enable',
+				'label'   => 'Animation Enable',
+				'cb'      => [ $admin, 'animation_enable_cb' ],
 				'page'    => 'make-post-dirty',
 				'section' => 'make-post-dirty-section',
 			],
