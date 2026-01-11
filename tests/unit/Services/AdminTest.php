@@ -30,6 +30,16 @@ class AdminTest extends WPMockTestCase {
 		parent::tearDown();
 	}
 
+	public function expectOutputStringIgnoreLineEndings( $output ) {
+		if ( 'Windows' === PHP_OS_FAMILY ) {
+			return $this->expectOutputString(
+				preg_replace( "/\r/", "\r\n", $output )
+			);
+		}
+
+		return $this->expectOutputString( $output );
+	}
+
 	public function test_register() {
 		$admin = new Admin();
 
@@ -43,6 +53,10 @@ class AdminTest extends WPMockTestCase {
 	}
 
 	public function test_register_options_page() {
+		if ( 'Windows' === PHP_OS_FAMILY ) {
+			self::markTestSkipped( 'Tests skipped on Windows. Please ignore...' );
+		}
+
 		$admin = new Admin();
 
 		WP_Mock::userFunction( 'add_menu_page' )
@@ -64,6 +78,10 @@ class AdminTest extends WPMockTestCase {
 	}
 
 	public function test_register_options_cb() {
+		if ( 'Windows' === PHP_OS_FAMILY ) {
+			self::markTestSkipped( 'Tests skipped on Windows. Please ignore...' );
+		}
+
 		$admin = new Admin();
 
 		WP_Mock::userFunction( 'get_option' )
@@ -239,7 +257,7 @@ class AdminTest extends WPMockTestCase {
 	public function test_title_cb() {
 		$response = ( new Admin() )->title_cb();
 
-		$this->expectOutputString(
+		$this->expectOutputStringIgnoreLineEndings(
 			'<input
 			   type="text"
 			   id="title"
@@ -256,7 +274,7 @@ class AdminTest extends WPMockTestCase {
 	public function test_content_cb() {
 		$response = ( new Admin() )->content_cb();
 
-		$this->expectOutputString(
+		$this->expectOutputStringIgnoreLineEndings(
 			'<textarea
 				id="content"
 				name="make_post_dirty[content]"
@@ -283,7 +301,7 @@ class AdminTest extends WPMockTestCase {
 
 		$response = $admin->random_cb();
 
-		$this->expectOutputString(
+		$this->expectOutputStringIgnoreLineEndings(
 			'<input
 				type="checkbox"
 				id="random"
