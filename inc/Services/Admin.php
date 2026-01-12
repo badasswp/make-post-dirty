@@ -65,11 +65,11 @@ class Admin extends Service implements Kernel {
 	const MAKE_POST_DIRTY_RANDOM = 'random';
 
 	/**
-	 * Default Animation Speed
+	 * Default Animation Speed.
 	 * 
 	 * @var integer
 	 */
-	const MAKE_POST_DIRTY_ANIMATION_SPEED = 'animation-speed';
+	const MAKE_POST_DIRTY_ANIMATION_SPEED = 'animation_speed';
 
 	/**
 	 * Default Post Title.
