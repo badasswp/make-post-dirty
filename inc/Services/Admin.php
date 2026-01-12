@@ -65,6 +65,13 @@ class Admin extends Service implements Kernel {
 	const MAKE_POST_DIRTY_RANDOM = 'random';
 
 	/**
+	 * Default Animation Speed
+	 * 
+	 * @var integer
+	 */
+	const MAKE_POST_DIRTY_ANIMATION_SPEED = 'animation-speed';
+
+	/**
 	 * Default Post Title.
 	 *
 	 * @var string
@@ -240,6 +247,13 @@ class Admin extends Service implements Kernel {
 				'page'    => self::PLUGIN_SLUG,
 				'section' => self::PLUGIN_SECTION,
 			],
+			[
+				'name'    => self::MAKE_POST_DIRTY_ANIMATION_SPEED,
+				'label'   => esc_html__( 'Animation Speed', 'make-post-dirty' ),
+				'cb'      => [ $this, $this->get_callback_name( self::MAKE_POST_DIRTY_ANIMATION_SPEED ) ],
+				'page'    => self::PLUGIN_SLUG,
+				'section' => self::PLUGIN_SECTION,
+			],
 		];
 
 		/**
@@ -370,6 +384,12 @@ class Admin extends Service implements Kernel {
 			$input_data = trim( (string) $input[ self::MAKE_POST_DIRTY_RANDOM ] );
 
 			$sanitized_options[ self::MAKE_POST_DIRTY_RANDOM ] = absint( $input_data );
+		}
+
+		if ( isset( $input[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] ) ) {
+			$input_data = trim( (integer) $input[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] );
+
+			$sanitized_options[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] = sanitize_text_field( $input_data );
 		}
 
 		return $sanitized_options;
