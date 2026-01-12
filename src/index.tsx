@@ -95,7 +95,11 @@ const MakePostDirty = (): JSX.Element => {
 	return (
 		<Fill name={ fillName }>
 			<Tooltip text={ __( 'Make Post Dirty', 'make-post-dirty' ) }>
-				<Button onClick={ handleClick } icon={ commentEditLink } />
+				<Button
+					onClick={ handleClick }
+					icon={ commentEditLink }
+					data-testid="make-post-dirty-btn"
+				/>
 			</Tooltip>
 		</Fill>
 	);
