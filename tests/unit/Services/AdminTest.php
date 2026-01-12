@@ -4,8 +4,8 @@ namespace MakePostDirty\Tests\Services;
 
 use WP_Mock;
 use Mockery;
-use WP_Mock\Tools\TestCase;
 use MakePostDirty\Services\Admin;
+use Badasswp\WPMockTC\WPMockTestCase;
 
 /**
  * @covers \MakePostDirty\Services\Admin::register
@@ -21,13 +21,23 @@ use MakePostDirty\Services\Admin;
  * @covers \MakePostDirty\Services\Admin::sanitize_options
  * @covers \MakePostDirty\Services\Admin::get_settings
  */
-class AdminTest extends TestCase {
+class AdminTest extends WPMockTestCase {
 	public function setUp(): void {
-		WP_Mock::setUp();
+		parent::setup();
 	}
 
 	public function tearDown(): void {
-		WP_Mock::tearDown();
+		parent::tearDown();
+	}
+
+	public function expectOutputStringIgnoreLineEndings( $output ) {
+		if ( 'Windows' === PHP_OS_FAMILY ) {
+			return $this->expectOutputString(
+				preg_replace( "/\r/", "\r\n", $output )
+			);
+		}
+
+		return $this->expectOutputString( $output );
 	}
 
 	public function test_register() {
@@ -43,14 +53,11 @@ class AdminTest extends TestCase {
 	}
 
 	public function test_register_options_page() {
-		$admin = new Admin();
+		if ( 'Windows' === PHP_OS_FAMILY ) {
+			self::markTestSkipped( 'Tests skipped on Windows. Please ignore...' );
+		}
 
-		WP_Mock::userFunction( 'esc_html__' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
+		$admin = new Admin();
 
 		WP_Mock::userFunction( 'add_menu_page' )
 			->with(
@@ -71,18 +78,15 @@ class AdminTest extends TestCase {
 	}
 
 	public function test_register_options_cb() {
+		if ( 'Windows' === PHP_OS_FAMILY ) {
+			self::markTestSkipped( 'Tests skipped on Windows. Please ignore...' );
+		}
+
 		$admin = new Admin();
 
 		WP_Mock::userFunction( 'get_option' )
 			->with( 'make_post_dirty', [] )
 			->andReturn( [] );
-
-		WP_Mock::userFunction( 'esc_html_e' )
-			->andReturnUsing(
-				function ( $arg ) {
-					echo $arg;
-				}
-			);
 
 		WP_Mock::userFunction( 'settings_fields' )
 			->andReturnUsing(
@@ -132,13 +136,6 @@ class AdminTest extends TestCase {
 	public function test_register_options_init() {
 		$admin = new Admin();
 
-		WP_Mock::userFunction( 'esc_html__' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
-
 		WP_Mock::userFunction( 'register_setting' )
 			->with(
 				'make-post-dirty-group',
@@ -181,11 +178,18 @@ class AdminTest extends TestCase {
 					'page'    => 'make-post-dirty',
 					'section' => 'make-post-dirty-section',
 				],
+				[
+					'name'    => 'animation_enable',
+					'label'   => 'Animation Enable',
+					'cb'      => [ $admin, 'animation_enable_cb' ],
+					'page'    => 'make-post-dirty',
+					'section' => 'make-post-dirty-section',
+				],
 			]
 		);
 
 		WP_Mock::userFunction( 'add_settings_field' )
-			->times( 3 );
+			->times( 4 );
 
 		$register = $admin->register_options_init();
 
@@ -196,13 +200,6 @@ class AdminTest extends TestCase {
 	public function test_get_sections() {
 		$admin = Mockery::mock( Admin::class )->makePartial();
 		$admin->shouldAllowMockingProtectedMethods();
-
-		WP_Mock::userFunction( 'esc_html__' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
 
 		$sections = $admin->get_sections();
 
@@ -253,14 +250,14 @@ class AdminTest extends TestCase {
 				'page'    => 'make-post-dirty',
 				'section' => 'make-post-dirty-section',
 			],
+			[
+				'name'    => 'animation_enable',
+				'label'   => 'Animation Enable',
+				'cb'      => [ $admin, 'animation_enable_cb' ],
+				'page'    => 'make-post-dirty',
+				'section' => 'make-post-dirty-section',
+			],
 		];
-
-		WP_Mock::userFunction( 'esc_html__' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
 
 		WP_Mock::expectFilter(
 			'make_post_dirty_admin_fields',
@@ -272,16 +269,9 @@ class AdminTest extends TestCase {
 	}
 
 	public function test_title_cb() {
-		WP_Mock::userFunction( 'esc_attr' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
-
 		$response = ( new Admin() )->title_cb();
 
-		$this->expectOutputString(
+		$this->expectOutputStringIgnoreLineEndings(
 			'<input
 			   type="text"
 			   id="title"
@@ -296,16 +286,9 @@ class AdminTest extends TestCase {
 	}
 
 	public function test_content_cb() {
-		WP_Mock::userFunction( 'esc_attr' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
-
 		$response = ( new Admin() )->content_cb();
 
-		$this->expectOutputString(
+		$this->expectOutputStringIgnoreLineEndings(
 			'<textarea
 				id="content"
 				name="make_post_dirty[content]"
@@ -321,13 +304,6 @@ class AdminTest extends TestCase {
 	public function test_random_cb() {
 		$admin = new Admin();
 
-		WP_Mock::userFunction( 'esc_attr' )
-			->andReturnUsing(
-				function ( $arg ) {
-					return $arg;
-				}
-			);
-
 		WP_Mock::userFunction( 'checked' )
 			->andReturnUsing(
 				function ( $arg1, $arg2, $arg3 ) {
@@ -339,7 +315,7 @@ class AdminTest extends TestCase {
 
 		$response = $admin->random_cb();
 
-		$this->expectOutputString(
+		$this->expectOutputStringIgnoreLineEndings(
 			'<input
 				type="checkbox"
 				id="random"
