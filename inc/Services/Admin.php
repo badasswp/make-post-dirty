@@ -73,7 +73,7 @@ class Admin extends Service implements Kernel {
 
 	/**
 	 * Default Animation Speed.
-	 * 
+	 *
 	 * @var integer
 	 */
 	const MAKE_POST_DIRTY_ANIMATION_SPEED = 'animation_speed';
@@ -428,7 +428,7 @@ class Admin extends Service implements Kernel {
 		}
 
 		if ( isset( $input[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] ) ) {
-			$input_data = trim( (integer) $input[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] );
+			$input_data = trim( (int) $input[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] );
 
 			$sanitized_options[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] = sanitize_text_field( $input_data );
 		}
