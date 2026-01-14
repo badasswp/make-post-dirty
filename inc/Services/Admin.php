@@ -338,11 +338,12 @@ class Admin extends Service implements Kernel {
 	public function animation_speed_cb(): void {
 		printf(
 			'<input
-				type="text"
+				type="number"
 				id="%2$s"
 				name="%1$s[%2$s]"
 				value="%3$s"
 			    class="wide"
+				placeholder="10"
 			/>',
 			esc_attr( self::PLUGIN_OPTION ),
 			esc_attr( self::MAKE_POST_DIRTY_ANIMATION_SPEED ),
