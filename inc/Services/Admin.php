@@ -342,7 +342,7 @@ class Admin extends Service implements Kernel {
 				id="%2$s"
 				name="%1$s[%2$s]"
 				value="%3$s"
-			    class="wide"
+			    class="small-text"
 				placeholder="10"
 			/>',
 			esc_attr( self::PLUGIN_OPTION ),
