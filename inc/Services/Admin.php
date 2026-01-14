@@ -74,7 +74,7 @@ class Admin extends Service implements Kernel {
 	/**
 	 * Default Animation Speed.
 	 *
-	 * @var integer
+	 * @var string
 	 */
 	const MAKE_POST_DIRTY_ANIMATION_SPEED = 'animation_speed';
 
@@ -331,7 +331,7 @@ class Admin extends Service implements Kernel {
 	/**
 	 * Animation Speed Callback.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 *
 	 * @return void
 	 */
