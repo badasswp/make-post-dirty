@@ -72,6 +72,13 @@ class Admin extends Service implements Kernel {
 	const MAKE_POST_DIRTY_ANIMATION_ENABLE = 'animation_enable';
 
 	/**
+	 * Default Animation Speed.
+	 *
+	 * @var string
+	 */
+	const MAKE_POST_DIRTY_ANIMATION_SPEED = 'animation_speed';
+
+	/**
 	 * Default Post Title.
 	 *
 	 * @var string
@@ -254,6 +261,13 @@ class Admin extends Service implements Kernel {
 				'page'    => self::PLUGIN_SLUG,
 				'section' => self::PLUGIN_SECTION,
 			],
+			[
+				'name'    => self::MAKE_POST_DIRTY_ANIMATION_SPEED,
+				'label'   => esc_html__( 'Animation Speed', 'make-post-dirty' ),
+				'cb'      => [ $this, $this->get_callback_name( self::MAKE_POST_DIRTY_ANIMATION_SPEED ) ],
+				'page'    => self::PLUGIN_SLUG,
+				'section' => self::PLUGIN_SECTION,
+			],
 		];
 
 		/**
@@ -311,6 +325,29 @@ class Admin extends Service implements Kernel {
 			esc_attr( self::MAKE_POST_DIRTY_CONTENT ),
 			esc_attr( $this->options[ self::MAKE_POST_DIRTY_CONTENT ] ?? '' ),
 			esc_attr( self::DEFAULT_POST_CONTENT )
+		);
+	}
+
+	/**
+	 * Animation Speed Callback.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return void
+	 */
+	public function animation_speed_cb(): void {
+		printf(
+			'<input
+				type="number"
+				id="%2$s"
+				name="%1$s[%2$s]"
+				value="%3$s"
+			    class="small-text"
+				placeholder="10"
+			/>',
+			esc_attr( self::PLUGIN_OPTION ),
+			esc_attr( self::MAKE_POST_DIRTY_ANIMATION_SPEED ),
+			esc_attr( $this->options[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] ?? '' )
 		);
 	}
 
@@ -389,6 +426,12 @@ class Admin extends Service implements Kernel {
 			$input_data = trim( (string) $input[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] );
 
 			$sanitized_options[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] = absint( $input_data );
+		}
+
+		if ( isset( $input[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] ) ) {
+			$input_data = trim( (int) $input[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] );
+
+			$sanitized_options[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] = sanitize_text_field( $input_data );
 		}
 
 		return $sanitized_options;
