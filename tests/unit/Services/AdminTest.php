@@ -18,6 +18,8 @@ use Badasswp\WPMockTC\WPMockTestCase;
  * @covers \MakePostDirty\Services\Admin::title_cb
  * @covers \MakePostDirty\Services\Admin::content_cb
  * @covers \MakePostDirty\Services\Admin::random_cb
+ * @covers \MakePostDirty\Services\Admin::animation_enable_cb
+ * @covers \MakePostDirty\Services\Admin::animation_speed_cb
  * @covers \MakePostDirty\Services\Admin::sanitize_options
  * @covers \MakePostDirty\Services\Admin::get_settings
  */
@@ -341,7 +343,7 @@ class AdminTest extends WPMockTestCase {
 		$this->assertConditionsMet();
 	}
 
-	public function test_animation_enable() {
+	public function test_animation_enable_cb() {
 		$admin = new Admin();
 
 		WP_Mock::userFunction( 'checked' )
@@ -367,7 +369,7 @@ class AdminTest extends WPMockTestCase {
 		$this->assertConditionsMet();
 	}
 
-	public function test_animation_speed() {
+	public function test_animation_speed_cb() {
 		$response = ( new Admin() )->animation_speed_cb();
 
 		$this->expectOutputStringIgnoreLineEndings(
