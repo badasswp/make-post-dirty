@@ -287,12 +287,12 @@ class AdminTest extends WPMockTestCase {
 
 		$this->expectOutputStringIgnoreLineEndings(
 			'<input
-			   type="text"
-			   id="title"
-			   name="make_post_dirty[title]"
-			   placeholder="Lorem ipsum dolor sit amet..."
-			   value=""
-			   class="wide"
+				type="text"
+				id="title"
+				name="make_post_dirty[title]"
+				placeholder="Lorem ipsum dolor sit amet..."
+				value=""
+				class="wide"
 		   />'
 		);
 		$this->assertNull( $response );
@@ -335,6 +335,49 @@ class AdminTest extends WPMockTestCase {
 				id="random"
 				name="make_post_dirty[random]"
 				value="1" checked
+			/>'
+		);
+		$this->assertNull( $response );
+		$this->assertConditionsMet();
+	}
+
+	public function test_animation_enable() {
+		$admin = new Admin();
+
+		WP_Mock::userFunction( 'checked' )
+			->andReturnUsing(
+				function ( $arg1, $arg2, $arg3 ) {
+					return $arg1 === $arg2 ? 'checked' : '';
+				}
+			);
+
+		$admin->options['animation_enable'] = 1;
+
+		$response = $admin->animation_enable_cb();
+
+		$this->expectOutputStringIgnoreLineEndings(
+			'<input
+				type="checkbox"
+				id="animation_enable"
+				name="make_post_dirty[animation_enable]"
+				value="1" checked
+			/>'
+		);
+		$this->assertNull( $response );
+		$this->assertConditionsMet();
+	}
+
+	public function test_animation_speed() {
+		$response = ( new Admin() )->animation_speed_cb();
+
+		$this->expectOutputStringIgnoreLineEndings(
+			'<input
+				type="number"
+				id="animation_speed"
+				name="make_post_dirty[animation_speed]"
+				value=""
+				class="small-text"
+				placeholder="10"
 			/>'
 		);
 		$this->assertNull( $response );

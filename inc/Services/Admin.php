@@ -291,12 +291,12 @@ class Admin extends Service implements Kernel {
 	public function title_cb(): void {
 		printf(
 			'<input
-			   type="text"
-			   id="%2$s"
-			   name="%1$s[%2$s]"
-			   placeholder="%4$s"
-			   value="%3$s"
-			   class="wide"
+				type="text"
+				id="%2$s"
+				name="%1$s[%2$s]"
+				placeholder="%4$s"
+				value="%3$s"
+				class="wide"
 		   />',
 			esc_attr( self::PLUGIN_OPTION ),
 			esc_attr( self::MAKE_POST_DIRTY_TITLE ),
@@ -325,29 +325,6 @@ class Admin extends Service implements Kernel {
 			esc_attr( self::MAKE_POST_DIRTY_CONTENT ),
 			esc_attr( $this->options[ self::MAKE_POST_DIRTY_CONTENT ] ?? '' ),
 			esc_attr( self::DEFAULT_POST_CONTENT )
-		);
-	}
-
-	/**
-	 * Animation Speed Callback.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @return void
-	 */
-	public function animation_speed_cb(): void {
-		printf(
-			'<input
-				type="number"
-				id="%2$s"
-				name="%1$s[%2$s]"
-				value="%3$s"
-			    class="small-text"
-				placeholder="10"
-			/>',
-			esc_attr( self::PLUGIN_OPTION ),
-			esc_attr( self::MAKE_POST_DIRTY_ANIMATION_SPEED ),
-			esc_attr( $this->options[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] ?? '' )
 		);
 	}
 
@@ -390,6 +367,29 @@ class Admin extends Service implements Kernel {
 			esc_attr( self::PLUGIN_OPTION ),
 			esc_attr( self::MAKE_POST_DIRTY_ANIMATION_ENABLE ),
 			checked( 1, $this->options[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] ?? 0, false )
+		);
+	}
+
+	/**
+	 * Animation Speed Callback.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return void
+	 */
+	public function animation_speed_cb(): void {
+		printf(
+			'<input
+				type="number"
+				id="%2$s"
+				name="%1$s[%2$s]"
+				value="%3$s"
+				class="small-text"
+				placeholder="10"
+			/>',
+			esc_attr( self::PLUGIN_OPTION ),
+			esc_attr( self::MAKE_POST_DIRTY_ANIMATION_SPEED ),
+			esc_attr( $this->options[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] ?? '' )
 		);
 	}
 
