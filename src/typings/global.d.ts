@@ -3,6 +3,7 @@ declare global {
 		title: string;
     content: string;
     wpVersion: string;
+    animationEnable: string;
     random: string;
 	};
 }
