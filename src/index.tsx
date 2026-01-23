@@ -100,6 +100,14 @@ const MakePostDirty = (): JSX.Element => {
 			editPost( { status: 'publish' } );
 			await savePost();
 		}
+
+		// Run this by default.
+		editPost( {
+			title: random ? randomTitle : title,
+			content: random ? randomContent : content,
+			status: 'publish',
+		} );
+		await savePost();
 	};
 
 	return (
