@@ -31,7 +31,7 @@ const MakePostDirty = (): JSX.Element => {
 			: 'PinnedItems/core/edit-post';
 
 	/**
-	 * Populate Post.
+	 * Populate Post Using Animation.
 	 *
 	 * Make post dirty by filling in the
 	 * title and content.
