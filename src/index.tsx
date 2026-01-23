@@ -99,6 +99,8 @@ const MakePostDirty = (): JSX.Element => {
 			// Save Post.
 			editPost( { status: 'publish' } );
 			await savePost();
+
+			return;
 		}
 
 		// Run this by default.
