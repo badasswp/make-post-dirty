@@ -138,6 +138,7 @@ class Admin extends Service implements Kernel {
 				settings_fields( self::PLUGIN_GROUP );
 				do_settings_sections( self::PLUGIN_SLUG );
 				submit_button();
+				settings_errors();
 			?>
 			</form>
 		</div>
