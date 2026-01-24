@@ -44,7 +44,7 @@ const MakePostDirty = (): JSX.Element => {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param  prop           The object.
+	 * @param  prop           Props.
 	 * @param  prop.attribute The post attribute for e.g. title or content.
 	 * @param  prop.value     The value for the attribute.
 	 *
