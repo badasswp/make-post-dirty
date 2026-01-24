@@ -398,6 +398,7 @@ class AdminTest extends WPMockTestCase {
 				'content'          => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vestibulum at nulla vitae rutrum. Nunc purus nulla, tincidunt sed turpis in, ullamcorper commodo libero.',
 				'random'           => '',
 				'animation_enable' => '',
+				'animation_speed'  => '10',
 			]
 		);
 
@@ -410,6 +411,7 @@ class AdminTest extends WPMockTestCase {
 				'content'          => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vestibulum at nulla vitae rutrum. Nunc purus nulla, tincidunt sed turpis in, ullamcorper commodo libero.',
 				'random'           => '',
 				'animation_enable' => '',
+				'animation_speed'  => '10',
 			]
 		);
 	}
@@ -423,6 +425,7 @@ class AdminTest extends WPMockTestCase {
 					'content'          => 'Lorem ipsum dolor sit amet...',
 					'random'           => true,
 					'animation_enable' => '1',
+					'animation_speed'  => '10',
 				]
 			);
 
@@ -433,6 +436,7 @@ class AdminTest extends WPMockTestCase {
 				'content'          => 'Lorem ipsum dolor sit amet...',
 				'random'           => true,
 				'animation_enable' => '1',
+				'animation_speed'  => '10',
 			]
 		);
 
@@ -445,6 +449,7 @@ class AdminTest extends WPMockTestCase {
 				'content'          => 'Lorem ipsum dolor sit amet...',
 				'random'           => true,
 				'animation_enable' => '1',
+				'animation_speed'  => '10',
 			]
 		);
 	}

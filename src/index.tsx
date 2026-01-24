@@ -21,8 +21,14 @@ import { Post } from './utils/interfaces';
  */
 const MakePostDirty = (): JSX.Element => {
 	const { editPost, savePost } = useDispatch( editorStore );
-	const { title, content, random, animationEnable, wpVersion } =
-		window.makePostDirty;
+	const {
+		title,
+		content,
+		random,
+		animationEnable,
+		animationSpeed,
+		wpVersion,
+	} = window.makePostDirty;
 
 	// Slot fill name changed in WP 6.6.
 	const fillName =
@@ -38,7 +44,7 @@ const MakePostDirty = (): JSX.Element => {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param  prop           The object.
+	 * @param  prop           Props.
 	 * @param  prop.attribute The post attribute for e.g. title or content.
 	 * @param  prop.value     The value for the attribute.
 	 *
@@ -52,20 +58,23 @@ const MakePostDirty = (): JSX.Element => {
 		const dirty: string[] = [];
 
 		return new Promise( ( resolve, reject ) => {
-			const makeDirty = setInterval( () => {
-				dirty[ attribute ] = value.substring( 0, limit );
-				editPost( dirty );
+			const makeDirty = setInterval(
+				() => {
+					dirty[ attribute ] = value.substring( 0, limit );
+					editPost( dirty );
 
-				if ( limit === value.length ) {
-					clearInterval( makeDirty );
-					resolve( value );
-				}
+					if ( limit === value.length ) {
+						clearInterval( makeDirty );
+						resolve( value );
+					}
 
-				if ( limit > value.length ) {
-					reject( sprintf( 'Something went wrong: %s', value ) );
-				}
-				limit++;
-			}, 10 );
+					if ( limit > value.length ) {
+						reject( sprintf( 'Something went wrong: %s', value ) );
+					}
+					limit++;
+				},
+				parseInt( animationSpeed ) || 10
+			);
 		} );
 	};
 

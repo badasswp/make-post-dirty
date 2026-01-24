@@ -464,6 +464,10 @@ class Admin extends Service implements Kernel {
 			$settings[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] = '';
 		}
 
+		if ( empty( $settings[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] ) ) {
+			$settings[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] = '10';
+		}
+
 		return apply_filters(
 			'make_post_dirty_settings',
 			[
@@ -471,6 +475,7 @@ class Admin extends Service implements Kernel {
 				self::MAKE_POST_DIRTY_CONTENT          => $settings[ self::MAKE_POST_DIRTY_CONTENT ] ?? '',
 				self::MAKE_POST_DIRTY_RANDOM           => $settings[ self::MAKE_POST_DIRTY_RANDOM ] ?? '',
 				self::MAKE_POST_DIRTY_ANIMATION_ENABLE => $settings[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] ?? '',
+				self::MAKE_POST_DIRTY_ANIMATION_SPEED  => $settings[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] ?? '',
 			]
 		);
 	}

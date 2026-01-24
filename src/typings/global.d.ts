@@ -4,6 +4,7 @@ declare global {
     content: string;
     wpVersion: string;
     animationEnable: string;
+    animationSpeed: string;
     random: string;
 	};
 }
