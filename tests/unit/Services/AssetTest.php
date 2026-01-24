@@ -102,6 +102,7 @@ class AssetTest extends TestCase {
 					'content'          => 'Test Content',
 					'random'           => true,
 					'animation_enable' => '1',
+					'animation_speed'  => '100',
 				]
 			);
 
@@ -112,6 +113,7 @@ class AssetTest extends TestCase {
 				'content'          => 'Test Content',
 				'random'           => true,
 				'animation_enable' => '1',
+				'animation_speed'  => '100',
 			]
 		);
 
@@ -168,6 +170,7 @@ class AssetTest extends TestCase {
 					'content'         => 'Test Content',
 					'random'          => true,
 					'animationEnable' => '1',
+					'animationSpeed'  => '100',
 					'wpVersion'       => null,
 				]
 			);
