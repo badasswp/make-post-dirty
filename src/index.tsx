@@ -21,7 +21,8 @@ import { Post } from './utils/interfaces';
  */
 const MakePostDirty = (): JSX.Element => {
 	const { editPost, savePost } = useDispatch( editorStore );
-	const { title, content, random, wpVersion } = window.makePostDirty;
+	const { title, content, random, animationEnable, wpVersion } =
+		window.makePostDirty;
 
 	// Slot fill name changed in WP 6.6.
 	const fillName =
@@ -30,7 +31,7 @@ const MakePostDirty = (): JSX.Element => {
 			: 'PinnedItems/core/edit-post';
 
 	/**
-	 * Populate Post.
+	 * Populate Post Using Animation.
 	 *
 	 * Make post dirty by filling in the
 	 * title and content.
@@ -43,7 +44,10 @@ const MakePostDirty = (): JSX.Element => {
 	 *
 	 * @return {Promise<string>} Returns a promise that resolves to string value.
 	 */
-	const populatePost = ( { attribute, value }: Post ): Promise< string > => {
+	const populatePostUsingAnimation = ( {
+		attribute,
+		value,
+	}: Post ): Promise< string > => {
 		let limit: number = 0;
 		const dirty: string[] = [];
 
@@ -54,7 +58,6 @@ const MakePostDirty = (): JSX.Element => {
 
 				if ( limit === value.length ) {
 					clearInterval( makeDirty );
-					savePost();
 					resolve( value );
 				}
 
@@ -82,14 +85,31 @@ const MakePostDirty = (): JSX.Element => {
 			index
 		] || { title, content };
 
-		await populatePost( {
-			attribute: 'title',
-			value: random ? randomTitle : title,
+		// If animation is enabled, then run.
+		if ( '1' === animationEnable ) {
+			await populatePostUsingAnimation( {
+				attribute: 'title',
+				value: random ? randomTitle : title,
+			} );
+			await populatePostUsingAnimation( {
+				attribute: 'content',
+				value: random ? randomContent : content,
+			} );
+
+			// Save Post.
+			editPost( { status: 'publish' } );
+			await savePost();
+
+			return;
+		}
+
+		// Run this by default.
+		editPost( {
+			title: random ? randomTitle : title,
+			content: random ? randomContent : content,
+			status: 'publish',
 		} );
-		await populatePost( {
-			attribute: 'content',
-			value: random ? randomContent : content,
-		} );
+		await savePost();
 	};
 
 	return (

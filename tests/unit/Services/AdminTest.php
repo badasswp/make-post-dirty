@@ -394,9 +394,10 @@ class AdminTest extends WPMockTestCase {
 		WP_Mock::expectFilter(
 			'make_post_dirty_settings',
 			[
-				'title'   => 'Lorem ipsum dolor sit amet...',
-				'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vestibulum at nulla vitae rutrum. Nunc purus nulla, tincidunt sed turpis in, ullamcorper commodo libero.',
-				'random'  => '',
+				'title'            => 'Lorem ipsum dolor sit amet...',
+				'content'          => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vestibulum at nulla vitae rutrum. Nunc purus nulla, tincidunt sed turpis in, ullamcorper commodo libero.',
+				'random'           => '',
+				'animation_enable' => '',
 			]
 		);
 
@@ -405,9 +406,10 @@ class AdminTest extends WPMockTestCase {
 		$this->assertSame(
 			$response,
 			[
-				'title'   => 'Lorem ipsum dolor sit amet...',
-				'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vestibulum at nulla vitae rutrum. Nunc purus nulla, tincidunt sed turpis in, ullamcorper commodo libero.',
-				'random'  => '',
+				'title'            => 'Lorem ipsum dolor sit amet...',
+				'content'          => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vestibulum at nulla vitae rutrum. Nunc purus nulla, tincidunt sed turpis in, ullamcorper commodo libero.',
+				'random'           => '',
+				'animation_enable' => '',
 			]
 		);
 	}
@@ -417,18 +419,20 @@ class AdminTest extends WPMockTestCase {
 			->with( 'make_post_dirty', [] )
 			->andReturn(
 				[
-					'title'   => 'Hello World',
-					'content' => 'Lorem ipsum dolor sit amet...',
-					'random'  => true,
+					'title'            => 'Hello World',
+					'content'          => 'Lorem ipsum dolor sit amet...',
+					'random'           => true,
+					'animation_enable' => '1',
 				]
 			);
 
 		WP_Mock::expectFilter(
 			'make_post_dirty_settings',
 			[
-				'title'   => 'Hello World',
-				'content' => 'Lorem ipsum dolor sit amet...',
-				'random'  => true,
+				'title'            => 'Hello World',
+				'content'          => 'Lorem ipsum dolor sit amet...',
+				'random'           => true,
+				'animation_enable' => '1',
 			]
 		);
 
@@ -437,9 +441,10 @@ class AdminTest extends WPMockTestCase {
 		$this->assertSame(
 			$response,
 			[
-				'title'   => 'Hello World',
-				'content' => 'Lorem ipsum dolor sit amet...',
-				'random'  => true,
+				'title'            => 'Hello World',
+				'content'          => 'Lorem ipsum dolor sit amet...',
+				'random'           => true,
+				'animation_enable' => '1',
 			]
 		);
 	}

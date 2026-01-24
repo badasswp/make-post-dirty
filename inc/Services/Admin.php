@@ -460,12 +460,17 @@ class Admin extends Service implements Kernel {
 			$settings[ self::MAKE_POST_DIRTY_RANDOM ] = '';
 		}
 
+		if ( empty( $settings[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] ) ) {
+			$settings[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] = '';
+		}
+
 		return apply_filters(
 			'make_post_dirty_settings',
 			[
-				self::MAKE_POST_DIRTY_TITLE   => $settings[ self::MAKE_POST_DIRTY_TITLE ] ?? '',
-				self::MAKE_POST_DIRTY_CONTENT => $settings[ self::MAKE_POST_DIRTY_CONTENT ] ?? '',
-				self::MAKE_POST_DIRTY_RANDOM  => $settings[ self::MAKE_POST_DIRTY_RANDOM ] ?? '',
+				self::MAKE_POST_DIRTY_TITLE            => $settings[ self::MAKE_POST_DIRTY_TITLE ] ?? '',
+				self::MAKE_POST_DIRTY_CONTENT          => $settings[ self::MAKE_POST_DIRTY_CONTENT ] ?? '',
+				self::MAKE_POST_DIRTY_RANDOM           => $settings[ self::MAKE_POST_DIRTY_RANDOM ] ?? '',
+				self::MAKE_POST_DIRTY_ANIMATION_ENABLE => $settings[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] ?? '',
 			]
 		);
 	}
