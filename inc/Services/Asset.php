@@ -62,6 +62,7 @@ class Asset extends Service implements Kernel {
 				'content'         => $settings['content'] ?? '',
 				'random'          => $settings['random'] ?? '',
 				'animationEnable' => $settings['animation_enable'] ?? '',
+				'animationSpeed'  => $settings['animation_speed'] ?? '',
 				'wpVersion'       => $wp_version,
 			]
 		);
