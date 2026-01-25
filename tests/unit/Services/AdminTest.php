@@ -112,7 +112,7 @@ class AdminTest extends TestCase {
 			);
 
 		WP_Mock::userFunction( 'settings_errors' )
-    		->andReturn( null );
+			->andReturn( null );
 
 		$register = $admin->register_options_cb();
 
