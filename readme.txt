@@ -56,6 +56,7 @@ Want to add your personal touch? All of our documentation can be found [here](ht
 
 1. Toolbar Icon - Locate icon on the top toolbar.
 2. Settings - Configure plugin settings here.
+3. Plugin Menu - Locate the plugin menu on the bottom-left part of the WP admin dashboard page.
 
 == Changelog ==
 

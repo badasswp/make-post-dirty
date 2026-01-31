@@ -65,6 +65,20 @@ class Admin extends Service implements Kernel {
 	const MAKE_POST_DIRTY_RANDOM = 'random';
 
 	/**
+	 * Default Animation Enable.
+	 *
+	 * @var string
+	 */
+	const MAKE_POST_DIRTY_ANIMATION_ENABLE = 'animation_enable';
+
+	/**
+	 * Default Animation Speed.
+	 *
+	 * @var string
+	 */
+	const MAKE_POST_DIRTY_ANIMATION_SPEED = 'animation_speed';
+
+	/**
 	 * Default Post Title.
 	 *
 	 * @var string
@@ -138,6 +152,7 @@ class Admin extends Service implements Kernel {
 				settings_fields( self::PLUGIN_GROUP );
 				do_settings_sections( self::PLUGIN_SLUG );
 				submit_button();
+				settings_errors();
 			?>
 			</form>
 		</div>
@@ -240,6 +255,20 @@ class Admin extends Service implements Kernel {
 				'page'    => self::PLUGIN_SLUG,
 				'section' => self::PLUGIN_SECTION,
 			],
+			[
+				'name'    => self::MAKE_POST_DIRTY_ANIMATION_ENABLE,
+				'label'   => esc_html__( 'Animation Enable', 'make-post-dirty' ),
+				'cb'      => [ $this, $this->get_callback_name( self::MAKE_POST_DIRTY_ANIMATION_ENABLE ) ],
+				'page'    => self::PLUGIN_SLUG,
+				'section' => self::PLUGIN_SECTION,
+			],
+			[
+				'name'    => self::MAKE_POST_DIRTY_ANIMATION_SPEED,
+				'label'   => esc_html__( 'Animation Speed', 'make-post-dirty' ),
+				'cb'      => [ $this, $this->get_callback_name( self::MAKE_POST_DIRTY_ANIMATION_SPEED ) ],
+				'page'    => self::PLUGIN_SLUG,
+				'section' => self::PLUGIN_SECTION,
+			],
 		];
 
 		/**
@@ -263,12 +292,12 @@ class Admin extends Service implements Kernel {
 	public function title_cb(): void {
 		printf(
 			'<input
-			   type="text"
-			   id="%2$s"
-			   name="%1$s[%2$s]"
-			   placeholder="%4$s"
-			   value="%3$s"
-			   class="wide"
+				type="text"
+				id="%2$s"
+				name="%1$s[%2$s]"
+				placeholder="%4$s"
+				value="%3$s"
+				class="wide"
 		   />',
 			esc_attr( self::PLUGIN_OPTION ),
 			esc_attr( self::MAKE_POST_DIRTY_TITLE ),
@@ -322,6 +351,50 @@ class Admin extends Service implements Kernel {
 	}
 
 	/**
+	 * Animation Enable.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return void
+	 */
+	public function animation_enable_cb(): void {
+		printf(
+			'<input
+				type="checkbox"
+				id="%2$s"
+				name="%1$s[%2$s]"
+				value="1" %3$s
+			/>',
+			esc_attr( self::PLUGIN_OPTION ),
+			esc_attr( self::MAKE_POST_DIRTY_ANIMATION_ENABLE ),
+			checked( 1, $this->options[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] ?? 0, false )
+		);
+	}
+
+	/**
+	 * Animation Speed Callback.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return void
+	 */
+	public function animation_speed_cb(): void {
+		printf(
+			'<input
+				type="number"
+				id="%2$s"
+				name="%1$s[%2$s]"
+				value="%3$s"
+				class="small-text"
+				placeholder="10"
+			/>',
+			esc_attr( self::PLUGIN_OPTION ),
+			esc_attr( self::MAKE_POST_DIRTY_ANIMATION_SPEED ),
+			esc_attr( $this->options[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] ?? '' )
+		);
+	}
+
+	/**
 	 * Sanitize Options.
 	 *
 	 * @since 1.0.0
@@ -350,6 +423,18 @@ class Admin extends Service implements Kernel {
 			$sanitized_options[ self::MAKE_POST_DIRTY_RANDOM ] = absint( $input_data );
 		}
 
+		if ( isset( $input[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] ) ) {
+			$input_data = trim( (string) $input[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] );
+
+			$sanitized_options[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] = absint( $input_data );
+		}
+
+		if ( isset( $input[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] ) ) {
+			$input_data = trim( (int) $input[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] );
+
+			$sanitized_options[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] = sanitize_text_field( $input_data );
+		}
+
 		return $sanitized_options;
 	}
 
@@ -376,12 +461,22 @@ class Admin extends Service implements Kernel {
 			$settings[ self::MAKE_POST_DIRTY_RANDOM ] = '';
 		}
 
+		if ( empty( $settings[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] ) ) {
+			$settings[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] = '';
+		}
+
+		if ( empty( $settings[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] ) ) {
+			$settings[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] = '10';
+		}
+
 		return apply_filters(
 			'make_post_dirty_settings',
 			[
-				self::MAKE_POST_DIRTY_TITLE   => $settings[ self::MAKE_POST_DIRTY_TITLE ] ?? '',
-				self::MAKE_POST_DIRTY_CONTENT => $settings[ self::MAKE_POST_DIRTY_CONTENT ] ?? '',
-				self::MAKE_POST_DIRTY_RANDOM  => $settings[ self::MAKE_POST_DIRTY_RANDOM ] ?? '',
+				self::MAKE_POST_DIRTY_TITLE            => $settings[ self::MAKE_POST_DIRTY_TITLE ] ?? '',
+				self::MAKE_POST_DIRTY_CONTENT          => $settings[ self::MAKE_POST_DIRTY_CONTENT ] ?? '',
+				self::MAKE_POST_DIRTY_RANDOM           => $settings[ self::MAKE_POST_DIRTY_RANDOM ] ?? '',
+				self::MAKE_POST_DIRTY_ANIMATION_ENABLE => $settings[ self::MAKE_POST_DIRTY_ANIMATION_ENABLE ] ?? '',
+				self::MAKE_POST_DIRTY_ANIMATION_SPEED  => $settings[ self::MAKE_POST_DIRTY_ANIMATION_SPEED ] ?? '',
 			]
 		);
 	}

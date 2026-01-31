@@ -98,18 +98,22 @@ class AssetTest extends TestCase {
 			->with( 'make_post_dirty', [] )
 			->andReturn(
 				[
-					'title'   => 'Test Title',
-					'content' => 'Test Content',
-					'random'  => true,
+					'title'            => 'Test Title',
+					'content'          => 'Test Content',
+					'random'           => true,
+					'animation_enable' => '1',
+					'animation_speed'  => '100',
 				]
 			);
 
 		WP_Mock::expectFilter(
 			'make_post_dirty_settings',
 			[
-				'title'   => 'Test Title',
-				'content' => 'Test Content',
-				'random'  => true,
+				'title'            => 'Test Title',
+				'content'          => 'Test Content',
+				'random'           => true,
+				'animation_enable' => '1',
+				'animation_speed'  => '100',
 			]
 		);
 
@@ -162,10 +166,12 @@ class AssetTest extends TestCase {
 				'make-post-dirty',
 				'makePostDirty',
 				[
-					'title'     => 'Test Title',
-					'content'   => 'Test Content',
-					'random'    => true,
-					'wpVersion' => null,
+					'title'           => 'Test Title',
+					'content'         => 'Test Content',
+					'random'          => true,
+					'animationEnable' => '1',
+					'animationSpeed'  => '100',
+					'wpVersion'       => null,
 				]
 			);
 

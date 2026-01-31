@@ -58,10 +58,12 @@ class Asset extends Service implements Kernel {
 			self::SLUG,
 			'makePostDirty',
 			[
-				'title'     => $settings['title'] ?? '',
-				'content'   => $settings['content'] ?? '',
-				'random'    => $settings['random'] ?? '',
-				'wpVersion' => $wp_version,
+				'title'           => $settings['title'] ?? '',
+				'content'         => $settings['content'] ?? '',
+				'random'          => $settings['random'] ?? '',
+				'animationEnable' => $settings['animation_enable'] ?? '',
+				'animationSpeed'  => $settings['animation_speed'] ?? '',
+				'wpVersion'       => $wp_version,
 			]
 		);
 
