@@ -3,7 +3,7 @@
  * Plugin Name: Make Post Dirty
  * Plugin URI:  https://github.com/badasswp/make-post-dirty
  * Description: A useful tool for populating the block editor title and content.
- * Version:     1.0.1
+ * Version:     1.1.0
  * Author:      badasswp
  * Author URI:  https://github.com/badasswp
  * License:     GPL v2 or later
