@@ -18,3 +18,5 @@ phpunit.xml
 README.md
 tsconfig.json
 webpack.config.js
+playwright.config.js
+playwright.setup.js
