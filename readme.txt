@@ -60,6 +60,14 @@ Want to add your personal touch? All of our documentation can be found [here](ht
 
 == Changelog ==
 
+= 1.1.0 =
+* Add Animation Enable & Animation Speed controls to the plugin options page.
+* Add Playwright e2e tests.
+* Add Pull Request Template to repo.
+* Test: Resolve failing tests related to Windows OS.
+* Use WPMockTC for unit tests.
+* Update to WP 6.9.
+
 = 1.0.1 =
 * Specify `wordpress-plugin` as Composer package type.
 * Tested up to WP 6.9.
