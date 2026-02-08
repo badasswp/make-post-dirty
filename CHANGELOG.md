@@ -1,5 +1,7 @@
 # Changelog
 
+## 1.2.0
+
 ## 1.1.0
 * Add Animation Enable & Animation Speed controls to the plugin options page.
 * Add Playwright e2e tests.
