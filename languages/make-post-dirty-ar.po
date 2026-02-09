@@ -4,14 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Make Post Dirty\n"
 "POT-Creation-Date: 2025-01-11 11:40+0100\n"
-"PO-Revision-Date: 2025-07-25 10:22+0100\n"
+"PO-Revision-Date: 2026-02-09 19:31+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 "X-Domain: make-post-dirty\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -25,23 +25,23 @@ msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "Make Post Dirty"
-msgstr "جعل آخر القذرة"
+msgstr "اجعل المنشور قذراً"
 
 #. Description of the plugin/theme
 msgid "A useful tool for populating the block editor title and content."
-msgstr "أداة مفيدة لملء عنوان محرر الكتل والمحتوى."
+msgstr "أداة مفيدة لملء عنوان ومحتوى محرر الكتل."
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/badasswp/make-post-dirty"
-msgstr "‫https://github.com/badasswp/make-post-dirty"
+msgstr "https://github.com/badasswp/make-post-dirty"
 
 #. Author of the plugin/theme
 msgid "badasswp"
-msgstr "‫badasswp"
+msgstr "badasswp"
 
 #. Author URI of the plugin/theme
 msgid "https://github.com/badasswp"
-msgstr "‫https://github.com/badasswp"
+msgstr "https://github.com/badasswp"
 
 #. Post Title
 msgid "Post Title"
@@ -53,15 +53,15 @@ msgstr "نشر المحتوى"
 
 #. Use Random Post
 msgid "Use Random Post"
-msgstr "استخدم مشاركة عشوائية"
+msgstr "استخدم المنشور العشوائي"
 
-#. Use Animation
-msgid "Use Animation"
-msgstr "استخدم الرسوم المتحركة"
+#. Animation Enable
+msgid "Animation Enable"
+msgstr "تمكين الرسوم المتحركة"
 
 #. Animation Speed (reduce to make it go faster)
 msgid "Animation Speed (reduce to make it go faster)"
-msgstr "سرعة الرسوم المتحركة (تقليلها لتسريعها)"
+msgstr "سرعة الرسوم المتحركة (تقليلها لجعلها أسرع)"
 
 #. Settings
 msgid "Settings"
