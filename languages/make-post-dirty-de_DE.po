@@ -57,7 +57,7 @@ msgstr "Zufällige Post verwenden"
 
 #. Animation Enable
 msgid "Animation Enable"
-msgstr "Animation aktivieren"
+msgstr "Animation Aktivieren"
 
 #. Animation Speed (reduce to make it go faster)
 msgid "Animation Speed (reduce to make it go faster)"
