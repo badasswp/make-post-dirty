@@ -45,7 +45,7 @@ msgstr "https://github.com/badasswp"
 
 #. Post Title
 msgid "Post Title"
-msgstr "Beitragstitel"
+msgstr "Beitrags Titel"
 
 #. Post Content
 msgid "Post Content"
