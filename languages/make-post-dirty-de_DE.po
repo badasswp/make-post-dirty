@@ -29,7 +29,7 @@ msgstr "Post schmutzig machen"
 
 #. Description of the plugin/theme
 msgid "A useful tool for populating the block editor title and content."
-msgstr "Ein nützliches Werkzeug zum Befüllen des Blockeditors mit Titel und Inhalt."
+msgstr "Ein nützliches Werkzeug, um den Titel und den Inhalt des Blockeditors zu füllen."
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/badasswp/make-post-dirty"
