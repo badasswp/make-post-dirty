@@ -57,7 +57,7 @@ msgstr "Koristite nasumični post"
 
 #. Animation Enable
 msgid "Animation Enable"
-msgstr "Omogući animaciju"
+msgstr "Omogući Animaciju"
 
 #. Animation Speed (reduce to make it go faster)
 msgid "Animation Speed (reduce to make it go faster)"
