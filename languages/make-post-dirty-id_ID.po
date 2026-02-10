@@ -4,10 +4,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Make Post Dirty\n"
 "POT-Creation-Date: 2025-01-11 11:40+0100\n"
-"PO-Revision-Date: 2026-02-10 10:13+0100\n"
+"PO-Revision-Date: 2026-02-10 09:52+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: da_DK\n"
+"Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,11 +25,11 @@ msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "Make Post Dirty"
-msgstr "Gør post beskidt"
+msgstr "Jadikan Postingan Kotor"
 
 #. Description of the plugin/theme
 msgid "A useful tool for populating the block editor title and content."
-msgstr "Et nyttigt værktøj til at udfylde blokeditorens titel og indhold."
+msgstr "Alat yang berguna untuk mengisi judul dan konten editor blok."
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/badasswp/make-post-dirty"
@@ -45,24 +45,24 @@ msgstr "https://github.com/badasswp"
 
 #. Post Title
 msgid "Post Title"
-msgstr "Indlægs titel"
+msgstr "Judul Postingan"
 
 #. Post Content
 msgid "Post Content"
-msgstr "Indlæg indhold"
+msgstr "Posting Konten"
 
 #. Use Random Post
 msgid "Use Random Post"
-msgstr "Brug Random Post"
+msgstr "Gunakan Posting Acak"
 
 #. Animation Enable
 msgid "Animation Enable"
-msgstr "Animation Aktiver"
+msgstr "Aktifkan Animasi"
 
 #. Animation Speed (reduce to make it go faster)
 msgid "Animation Speed (reduce to make it go faster)"
-msgstr "Animationshastighed (reducer for at gøre den hurtigere)"
+msgstr "Kecepatan Animasi (kurangi untuk mempercepatnya)"
 
 #. Settings
 msgid "Settings"
-msgstr "Indstillinger"
+msgstr "Pengaturan"
