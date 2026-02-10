@@ -61,7 +61,7 @@ msgstr "Activer l'Animation"
 
 #. Animation Speed (reduce to make it go faster)
 msgid "Animation Speed (reduce to make it go faster)"
-msgstr "Vitesse d'animation (réduisez-la pour accélérer)"
+msgstr "Vitesse d'Animation (réduisez-la pour accélérer)"
 
 #. Settings
 msgid "Settings"
