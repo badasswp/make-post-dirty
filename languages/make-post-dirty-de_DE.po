@@ -53,7 +53,7 @@ msgstr "Beitrag Inhalt"
 
 #. Use Random Post
 msgid "Use Random Post"
-msgstr "Verwenden Sie zufällige Beiträge"
+msgstr "Zufällige Post verwenden"
 
 #. Animation Enable
 msgid "Animation Enable"
