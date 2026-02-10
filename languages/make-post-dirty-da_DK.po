@@ -53,7 +53,7 @@ msgstr "Indlæg indhold"
 
 #. Use Random Post
 msgid "Use Random Post"
-msgstr "Brug Random Post"
+msgstr "Brug Ethvert Indlæg"
 
 #. Animation Enable
 msgid "Animation Enable"
