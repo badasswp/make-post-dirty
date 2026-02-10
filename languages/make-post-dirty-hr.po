@@ -65,4 +65,4 @@ msgstr "Brzina animacije (smanjite je da bi išla brže)"
 
 #. Settings
 msgid "Settings"
-msgstr "postavke"
+msgstr "Postavke"
