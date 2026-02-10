@@ -49,7 +49,7 @@ msgstr "Titolo del messaggio"
 
 #. Post Content
 msgid "Post Content"
-msgstr "Pubblica contenuto"
+msgstr "Contenuto dell'Articolo"
 
 #. Use Random Post
 msgid "Use Random Post"
