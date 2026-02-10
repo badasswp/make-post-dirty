@@ -57,7 +57,7 @@ msgstr "Utiliser une publication aléatoire"
 
 #. Animation Enable
 msgid "Animation Enable"
-msgstr "Activer l'animation"
+msgstr "Activer l'Animation"
 
 #. Animation Speed (reduce to make it go faster)
 msgid "Animation Speed (reduce to make it go faster)"
