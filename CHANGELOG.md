@@ -1,6 +1,10 @@
 # Changelog
 
 ## 1.2.0
+Feat: Added language translations for Japanese, Indonesia, Turkish, Polish, Dutch, Danish, Brazil, Portuguese.
+Feat: Add missing translations for Animation Controls.
+Docs: Update README docs.
+Tested up to WP 6.9.
 
 ## 1.1.0
 * Add Animation Enable & Animation Speed controls to the plugin options page.
