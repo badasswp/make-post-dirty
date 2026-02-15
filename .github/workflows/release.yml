@@ -38,7 +38,7 @@ jobs:
 
       - name: Run JS Unit Tests
         run: |
-          yarn test:js
+          yarn test:js -u
 
       - name: Set up PHP v8.2
         uses: shivammathur/setup-php@v2
