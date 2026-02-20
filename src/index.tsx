@@ -138,3 +138,5 @@ registerPlugin( 'make-post-dirty', {
 	icon: null,
 	render: MakePostDirty,
 } );
+
+export default MakePostDirty;
