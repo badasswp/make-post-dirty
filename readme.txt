@@ -32,7 +32,7 @@ The plugin provides the following capabilities:
 ✔️ <strong>Toolbar Icon</strong>: To populate post, click on this icon.
 ✔️ <strong>Settings</strong>: An options page for configuring the plugin settings.
 ✔️ <strong>Custom filters</strong>: `make_post_dirty_settings`, `manage_post_dirty_admin_fields`.
-✔️ Available in <strong>multiple langauges</strong> such as Arabic, Chinese, Danish, Hebrew, Hindi, Russian, German, Italian, Croatian, Spanish & French languages.
+✔️ Available in <strong>multiple langauges</strong> such as Arabic, Chinese, Danish, Hebrew, Hindi, Russian, German, Italian, Croatian, Spanish, French, Japanese, Indonesia, Turkish, Polish, Dutch, Danish, Brazil & Portuguese languages.
 ✔️ Easy to work with.
 ✔️ <strong>Backward compatible</strong>, works with most WP versions.
 
