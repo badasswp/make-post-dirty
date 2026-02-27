@@ -1,5 +1,5 @@
 === Make Post Dirty ===
-Contributors: badasswp
+Contributors: badasswp, activist507
 Tags: post, dirty, block-editor, content, test
 Requires at least: 4.0
 Tested up to: 6.9
