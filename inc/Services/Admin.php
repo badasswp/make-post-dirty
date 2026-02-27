@@ -264,7 +264,7 @@ class Admin extends Service implements Kernel {
 			],
 			[
 				'name'    => self::MAKE_POST_DIRTY_ANIMATION_SPEED,
-				'label'   => esc_html__( 'Animation Speed', 'make-post-dirty' ),
+				'label'   => esc_html__( 'Animation Speed (reduce to make it go faster)', 'make-post-dirty' ),
 				'cb'      => [ $this, $this->get_callback_name( self::MAKE_POST_DIRTY_ANIMATION_SPEED ) ],
 				'page'    => self::PLUGIN_SLUG,
 				'section' => self::PLUGIN_SECTION,

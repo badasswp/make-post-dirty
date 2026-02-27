@@ -192,7 +192,7 @@ class AdminTest extends WPMockTestCase {
 				],
 				[
 					'name'    => 'animation_speed',
-					'label'   => 'Animation Speed',
+					'label'   => 'Animation Speed (reduce to make it go faster)',
 					'cb'      => [ $admin, 'animation_speed_cb' ],
 					'page'    => 'make-post-dirty',
 					'section' => 'make-post-dirty-section',
@@ -271,7 +271,7 @@ class AdminTest extends WPMockTestCase {
 			],
 			[
 				'name'    => 'animation_speed',
-				'label'   => 'Animation Speed',
+				'label'   => 'Animation Speed (reduce to make it go faster)',
 				'cb'      => [ $admin, 'animation_speed_cb' ],
 				'page'    => 'make-post-dirty',
 				'section' => 'make-post-dirty-section',

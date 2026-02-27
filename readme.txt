@@ -1,9 +1,9 @@
 === Make Post Dirty ===
-Contributors: badasswp
+Contributors: badasswp, activist507
 Tags: post, dirty, block-editor, content, test
 Requires at least: 4.0
 Tested up to: 6.9
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -31,17 +31,15 @@ The plugin provides the following capabilities:
 
 ✔️ <strong>Toolbar Icon</strong>: To populate post, click on this icon.
 ✔️ <strong>Settings</strong>: An options page for configuring the plugin settings.
-✔️ <strong>Custom filters</strong>: `make_post_dirty_settings`, `manage_post_dirty_admin_fields`.
-✔️ Available in <strong>multiple langauges</strong> such as Arabic, Chinese, Danish, Hebrew, Hindi, Russian, German, Italian, Croatian, Spanish & French languages.
+✔️ Multiple <strong>custom hooks</strong> to enable you customize plugin to your heart's delight.
+✔️ Available in <strong>multiple langauges</strong> such as Arabic, Chinese, Danish, Hebrew, Hindi, Russian, German, Italian, Croatian, Spanish, French, Japanese, Indonesia, Turkish, Polish, Dutch, Danish, Brazil & Portuguese languages.
 ✔️ Easy to work with.
 ✔️ <strong>Backward compatible</strong>, works with most WP versions.
 
 = ✨ Getting Started =
 
 1. Create a New Post.
-
 2. Locate the 'Make Post Dirty' icon at the top-right section of the block editor.
-
 3. Click to populate the block editor title and content.
 
 You can get a taste of how this plugin works, by using the [demo](https://tastewp.com/create/NMS/8.0/6.7.0/make-post-dirty/twentytwentythree?ni=true&origin=wp) link.
@@ -59,6 +57,12 @@ Want to add your personal touch? All of our documentation can be found [here](ht
 3. Plugin Menu - Locate the plugin menu on the bottom-left part of the WP admin dashboard page.
 
 == Changelog ==
+
+= 1.2.0 =
+Feat: Added language translations for Japanese, Indonesia, Turkish, Polish, Dutch, Danish, Brazil, Portuguese.
+Feat: Add missing translations for Animation Controls.
+Docs: Update README docs.
+Tested up to WP 6.9.
 
 = 1.1.0 =
 * Add Animation Enable & Animation Speed controls to the plugin options page.
