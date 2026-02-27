@@ -31,7 +31,7 @@ The plugin provides the following capabilities:
 
 ✔️ <strong>Toolbar Icon</strong>: To populate post, click on this icon.
 ✔️ <strong>Settings</strong>: An options page for configuring the plugin settings.
-✔️ <strong>Custom filters</strong>: `make_post_dirty_settings`, `manage_post_dirty_admin_fields`.
+✔️ Multiple <strong>custom hooks</strong> to enable you customize plugin to your heart's delight.
 ✔️ Available in <strong>multiple langauges</strong> such as Arabic, Chinese, Danish, Hebrew, Hindi, Russian, German, Italian, Croatian, Spanish, French, Japanese, Indonesia, Turkish, Polish, Dutch, Danish, Brazil & Portuguese languages.
 ✔️ Easy to work with.
 ✔️ <strong>Backward compatible</strong>, works with most WP versions.
@@ -39,9 +39,7 @@ The plugin provides the following capabilities:
 = ✨ Getting Started =
 
 1. Create a New Post.
-
 2. Locate the 'Make Post Dirty' icon at the top-right section of the block editor.
-
 3. Click to populate the block editor title and content.
 
 You can get a taste of how this plugin works, by using the [demo](https://tastewp.com/create/NMS/8.0/6.7.0/make-post-dirty/twentytwentythree?ni=true&origin=wp) link.
