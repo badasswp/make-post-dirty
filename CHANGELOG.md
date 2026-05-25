@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.2
+Tested up to WP 7.0.
+
+## 1.2.1
+Chore: Update CI/CD pipeline.
+
 ## 1.2.0
 Feat: Added language translations for Japanese, Indonesia, Turkish, Polish, Dutch, Danish, Brazil, Portuguese.
 Feat: Add missing translations for Animation Controls.
