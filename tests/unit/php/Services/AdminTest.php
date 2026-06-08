@@ -22,6 +22,7 @@ use Badasswp\WPMockTC\WPMockTestCase;
  * @covers \MakePostDirty\Services\Admin::animation_speed_cb
  * @covers \MakePostDirty\Services\Admin::sanitize_options
  * @covers \MakePostDirty\Services\Admin::get_settings
+ * @covers \PingMeOnSlack\Services\Admin::__construct
  */
 class AdminTest extends WPMockTestCase {
 	public function setUp(): void {
@@ -85,7 +86,7 @@ class AdminTest extends WPMockTestCase {
 				'More Plugins',
 				'manage_options',
 				'make-post-dirty-more-plugins',
-				[ $this->admin, 'register_more_plugins' ]
+				[ $admin, 'register_more_plugins' ]
 			)
 			->andReturn( null );
 
