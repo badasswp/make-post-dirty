@@ -22,7 +22,7 @@ use Badasswp\WPMockTC\WPMockTestCase;
  * @covers \MakePostDirty\Services\Admin::animation_speed_cb
  * @covers \MakePostDirty\Services\Admin::sanitize_options
  * @covers \MakePostDirty\Services\Admin::get_settings
- * @covers \PingMeOnSlack\Services\Admin::__construct
+ * @covers \MakePostDirty\Services\Admin::__construct
  */
 class AdminTest extends WPMockTestCase {
 	public function setUp(): void {
