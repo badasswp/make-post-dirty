@@ -22,6 +22,7 @@ use Badasswp\WPMockTC\WPMockTestCase;
  * @covers \MakePostDirty\Services\Admin::animation_speed_cb
  * @covers \MakePostDirty\Services\Admin::sanitize_options
  * @covers \MakePostDirty\Services\Admin::get_settings
+ * @covers \PingMeOnSlack\Services\Admin::__construct
  */
 class AdminTest extends WPMockTestCase {
 	public function setUp(): void {
@@ -47,6 +48,7 @@ class AdminTest extends WPMockTestCase {
 
 		WP_Mock::expectActionAdded( 'admin_menu', [ $admin, 'register_options_page' ] );
 		WP_Mock::expectActionAdded( 'admin_init', [ $admin, 'register_options_init' ] );
+		WP_Mock::expectActionAdded( 'admin_init', [ $admin->pluginate, 'init' ] );
 
 		$register = $admin->register();
 
@@ -70,6 +72,21 @@ class AdminTest extends WPMockTestCase {
 				[ $admin, 'register_options_cb' ],
 				'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iY3VycmVudENvbG9yIj4KCQkJCQk8cGF0aCBkPSJtNi4yNDkgMTEuMDY1LjQ0LS40NGgzLjE4NmwtMS41IDEuNUg3LjMxbC0xLjk1NyAxLjk2QS43OTIuNzkyIDAgMCAxIDQgMTMuNTI0VjVhMSAxIDAgMCAxIDEtMWg4YTEgMSAwIDAgMSAxIDF2MS41TDEyLjUgOFY1LjVoLTd2Ni4zMTVsLjc0OS0uNzVaTTIwIDE5Ljc1SDd2LTEuNWgxM3YxLjVabTAtMTIuNjUzLTguOTY3IDkuMDY0TDggMTdsLjg2Ny0yLjkzNUwxNy44MzMgNSAyMCA3LjA5N1oiIC8+CgkJCQk8L3N2Zz4=',
 				100
+			)
+			->andReturn( null );
+
+		WP_Mock::userFunction( '__' )
+			->andReturnUsing( fn( $text, $domain ) => $text );
+
+		WP_Mock::userFunction( 'add_submenu_page' )
+			->once()
+			->with(
+				'make-post-dirty',
+				'More Plugins',
+				'More Plugins',
+				'manage_options',
+				'make-post-dirty-more-plugins',
+				[ $this->admin, 'register_more_plugins' ]
 			)
 			->andReturn( null );
 

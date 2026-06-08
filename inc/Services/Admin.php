@@ -14,7 +14,27 @@ namespace MakePostDirty\Services;
 use MakePostDirty\Abstracts\Service;
 use MakePostDirty\Interfaces\Kernel;
 
+use Pluginate\Admin as Pluginate;
+
 class Admin extends Service implements Kernel {
+	/**
+	 * Pluginate instance.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @var Pluginate
+	 */
+	public Pluginate $pluginate;
+
+	/**
+	 * Admin constructor.
+	 *
+	 * @since 1.3.0
+	 */
+	public function __construct() {
+		$this->pluginate = new Pluginate( 'make-post-dirty' );
+	}
+
 	/**
 	 * Plugin Option.
 	 *
@@ -109,6 +129,7 @@ class Admin extends Service implements Kernel {
 	public function register(): void {
 		add_action( 'admin_menu', [ $this, 'register_options_page' ] );
 		add_action( 'admin_init', [ $this, 'register_options_init' ] );
+		add_action( 'admin_init', [ $this->pluginate, 'init' ] );
 	}
 
 	/**
@@ -131,6 +152,44 @@ class Admin extends Service implements Kernel {
 				</svg>'
 			),
 			100
+		);
+
+		add_submenu_page(
+			self::PLUGIN_SLUG,
+			__( 'More Plugins', 'make-post-dirty' ),
+			__( 'More Plugins', 'make-post-dirty' ),
+			'manage_options',
+			sprintf( '%s-more-plugins', self::PLUGIN_SLUG, ),
+			[ $this, 'register_more_plugins' ]
+		);
+	}
+
+	/**
+	 * Register More Plugins.
+	 *
+	 * This controls the display of the
+	 * "More Plugins" submenu page.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @return void
+	 */
+	public function register_more_plugins(): void {
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		vprintf(
+			'<section class="wrap">
+				<h1>%s</h1>
+				<p>%s</p>
+				%s
+			</section>',
+			array_map(
+				'__',
+				[
+					'More Plugins',
+					'Check out some other amazing plugin of ours...',
+					$this->pluginate->get_more_plugins(),
+				]
+			)
 		);
 	}
 
