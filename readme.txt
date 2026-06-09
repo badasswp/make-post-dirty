@@ -3,7 +3,7 @@ Contributors: badasswp, activist507
 Tags: post, dirty, block-editor, content, test
 Requires at least: 4.0
 Tested up to: 7.0
-Stable tag: 1.2.2
+Stable tag: 1.3.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -57,6 +57,9 @@ Want to add your personal touch? All of our documentation can be found [here](ht
 3. Plugin Menu - Locate the plugin menu on the bottom-left part of the WP admin dashboard page.
 
 == Changelog ==
+
+= 1.3.0
+* Feat: Add `More Plugins` options page.
 
 = 1.2.2 =
 Tested up to WP 7.0.
